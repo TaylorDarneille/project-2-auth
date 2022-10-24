@@ -56,4 +56,18 @@ router.get('/profile', (req, res)=>{
     res.render('users/profile.ejs')
 })
 
+router.get('/book', (req, res)=>{
+    res.render('users/book.ejs')
+})
+
+router.get('/home', async (req, res)=>{
+    try {
+        let allEvents = await db.event.findAll({})
+        res.render('home.ejs', {allEvents})
+    } catch(err) {
+        res.send(err)
+    }
+})
+
+
 module.exports = router

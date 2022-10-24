@@ -1,1 +1,170 @@
-<h2>Home</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.card {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background: url(./images/concert.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-rows: 60% 40%;
+}
+
+.event-info {
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+    "empty title title"
+    "info info action";
+    justify-items: center;
+    align-items: center;
+    grid-gap: 16px;
+    padding: 20px;
+}
+
+.event-info * {
+    position: relative;
+}
+
+.title {
+    grid-area: title;
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.additional-info {
+    grid-area: info;
+}
+
+.additional-info p {
+    font-size: 0.9em;
+    margin-top: 8px;
+    letter-spacing: 0.7px;
+}
+
+.action {
+    grid-area: action;
+}
+
+.price {
+    position: absolute;
+    top: -20%;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    color: #dd5e89;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.event-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 300%;
+    background: linear-gradient(to bottom, #eb5285 0%, #ffe44e 51%, #dd5e89 100%);
+    transform: rotate(-8deg);
+    border-top-right-radius: 100px;
+}
+
+.action {
+    border: 1px solid;
+    outline: none;
+    background-color: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 12px;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.action:hover {
+    background-color: #fff;
+    color: #dd5e89;
+}
+    .items{
+        padding: 20px;
+        margin: 80px;
+    }
+    .container {
+    display: flex;
+    justify-content: center;
+}
+
+#boxes {
+    min-height: 100px;
+    margin-top: 20px;
+}
+
+#boxes .box {
+    background-color: grey;
+    margin-top: 20px;
+    border-radius: 50px;
+    margin-left: 20px;
+    float: left;
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+  }
+
+#boxes .fab {
+    padding: 0 5px;
+}
+</style>
+<body>
+    <h2>Home Page</h2>
+
+<ul class="items">
+    <% allEvents.forEach(event => { %>
+        <p><%= event.event_type %></p>
+        <li><%= event.event_description %></li><br><br>
+        <p>Price : <%= event.price %> BD</p>
+        <p><%= event.event_date  %> </p>
+        <% }) %>
+        <% console.log(allEvents) %> 
+    </ul> 
+<div class="card">
+    <section class="top"></section>
+    <div class="event-info">
+        <p class="price">70BD</p>
+        <p class="title">Music Festival</p>
+
+        <div class="additional-info">
+            <p class="info">
+                <i class="fas fa-map-marker-alt"></i>
+                Bohemia singing
+            </p>
+            <p class="info">
+                <i class="fas fa-calendar-alt"></i>
+                Sat, November 19, 10:00 AM
+            </p>
+        </div>
+        <button class="action">Book it</button>
+    </div>
+</div>
+</body>
+</html>
+
