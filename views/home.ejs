@@ -1,2 +1,11 @@
 <h2>Home</h2>
-<a href="/foods/recipes">To Cook</a>
+
+<a href="/foods/recipes">Saved Recipes</a>
+
+<% foods.forEach((food, idx) => { %>
+    <div>
+        <a href="/foods/<%= food.recipe.label %>">
+            <%= food.recipe.label %>
+        </a>
+    </div>
+<% }) %>

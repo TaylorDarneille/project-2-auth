@@ -30,16 +30,15 @@ app.use('/foods', require('./controllers/foods'))
 
 // ROUTES
 app.get('/', (req, res)=>{
-
-    // // API
-    // axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=10f33fbc&app_key=43f9be24513291624d49476ed4d0dd73`)
-    // .then(apiResponse=>{
-    //     let foods = apiResponse.data.hits
-    //     res.render('foods/recipes.ejs', {foods})
-    //     // res.json(foods[0].recipe.label)
-    // })
-    res.render('home.ejs')
-
+    // API
+    axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=10f33fbc&app_key=43f9be24513291624d49476ed4d0dd73`)
+    .then(apiResponse=>{
+        let foods = apiResponse.data.hits
+        res.render('home.ejs', {foods})
+        // res.render('home.ejs', {foods})
+        // res.json(foods[0].recipe.label)
+    })
+    // res.render('home.ejs')
 })
 
 app.listen(8000, ()=>{
