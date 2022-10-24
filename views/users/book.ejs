@@ -1,1 +1,18 @@
 <h2>Booking page</h2>
+
+<form class='comment-section' method="POST" action="/users/book">
+    <label for="name">Your Name: </label>
+    <input type="text" name="name" id="name" value="<%= user.name %>">
+    <div class="form-group">
+      <label for="Email">Email</label>
+      <input type="text" name="email" required value="<%= user.email %>"></input><br>
+      <label for="Number">CPR</label>
+      <input type="number" name="cpr" required></input>
+      <label for="Number">Age</label>
+      <input type="number" name="age" required></input>
+    </div>
+  
+    <input type="submit" class="btn btn-primary">
+  </form>
+  
+  <a href="/">&larr; Back Home</a>

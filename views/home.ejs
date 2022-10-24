@@ -9,8 +9,9 @@
 <style>
 .card {
     position: relative;
+    display: inline;
     width: 450px;
-    height: 450px;
+    height: 650px;
     background: url(./images/concert.jpg) no-repeat center;
     background-size: cover;
     border-radius: 40px;
@@ -87,7 +88,7 @@
     border-top-right-radius: 100px;
 }
 
-.action {
+/* .action {
     border: 1px solid;
     outline: none;
     background-color: transparent;
@@ -99,12 +100,12 @@
     font-weight: bold;
     letter-spacing: 1.5px;
     transition: background-color 0.3s, color 0.3s;
-}
+} */
 
-.action:hover {
+/* .action:hover {
     background-color: #fff;
     color: #dd5e89;
-}
+} */
     .items{
         padding: 20px;
         margin: 80px;
@@ -133,38 +134,46 @@
 #boxes .fab {
     padding: 0 5px;
 }
+
+#card-container {
+    /* border: 2px solid red; */
+    width: 95vw;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.click{
+    background-color: blue;
+    border-radius: 30px;
+}
 </style>
 <body>
     <h2>Home Page</h2>
-
-<ul class="items">
-    <% allEvents.forEach(event => { %>
-        <p><%= event.event_type %></p>
-        <li><%= event.event_description %></li><br><br>
-        <p>Price : <%= event.price %> BD</p>
-        <p><%= event.event_date  %> </p>
-        <% }) %>
-        <% console.log(allEvents) %> 
-    </ul> 
-<div class="card">
-    <section class="top"></section>
-    <div class="event-info">
-        <p class="price">70BD</p>
-        <p class="title">Music Festival</p>
-
-        <div class="additional-info">
-            <p class="info">
-                <i class="fas fa-map-marker-alt"></i>
-                Bohemia singing
-            </p>
-            <p class="info">
-                <i class="fas fa-calendar-alt"></i>
-                Sat, November 19, 10:00 AM
-            </p>
+    <div id="card-container">
+        <% allEvents.forEach(event => { %>
+            <div class="card">
+                <section class="top"></section>
+            <div class="event-info">
+                <p class="price"> <%= event.price %> BD</p>
+                <p class="title"><%= event.event_type %></p>
+        
+                <div class="additional-info">
+                    <p class="info">
+                        <%= event.event_description %>
+                    </p>
+                    <p class="info">
+                        <%= event.event_date  %>
+                    </p>
+                </div>
+                <button class="action">
+                    <li class="click"><a href="/users/book">Booking</a></li>
+                </button>
+            </div>
         </div>
-        <button class="action">Book it</button>
+        <% }) %>
     </div>
-</div>
+
 </body>
 </html>
 

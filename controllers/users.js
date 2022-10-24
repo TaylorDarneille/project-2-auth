@@ -10,7 +10,11 @@ router.get('/new', (req, res)=>{
 })
 
 router.post('/', async (req, res)=>{
-    const [newUser, created] = await db.user.findOrCreate({where:{email: req.body.email}})
+    const [newUser, created] = await db.user.findOrCreate({
+        where:{
+            name: req.body.name,
+            email: req.body.email
+        }})
     if(!created){
         console.log('user already exists')
         res.render('users/login.ejs', {error: 'Looks like you already have an account! Try logging in :)'})
@@ -69,5 +73,24 @@ router.get('/home', async (req, res)=>{
     }
 })
 
+// POST users/book/ - 
+router.post('/book', (req, res)=>{
+    console.log('post route')
+    // try{
+      db.booking.create({
+        name: req.body.name,
+        email: req.body.email,  
+        cpr: req.body.cpr,
+        age: req.body.age
+      })
+      .then(booking =>{
+        console.log(('data pushed'))
+      res.redirect(`/users/home`)
+      })
+    // }
+    // catch(err){
+    //   console.log(err)
+    // }
+  })
 
 module.exports = router
