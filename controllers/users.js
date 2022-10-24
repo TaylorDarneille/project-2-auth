@@ -10,7 +10,10 @@ router.get('/new', (req, res)=>{
 })
 
 router.post('/', async (req, res)=>{
-    const [newUser, created] = await db.user.findOrCreate({where:{email: req.body.email}})
+    const [newUser, created] = await db.user.findOrCreate({where:{
+        name:req.body.name,
+        email: req.body.email
+    }})
     if(!created){
         console.log('user already exists')
         res.render('users/login.ejs', {error: 'Looks like you already have an account! Try logging in :)'})
