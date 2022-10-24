@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const db = require('./models')
 const cryptoJS = require('crypto-js')
 require('dotenv').config()
+const axios = require('axios');
 
 // MIDDLEWARE
 app.set('view engine', 'ejs')
@@ -25,10 +26,20 @@ app.use(async (req, res, next)=>{
 
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
+app.use('/foods', require('./controllers/foods'))
 
 // ROUTES
 app.get('/', (req, res)=>{
-    res.render('home')
+
+    // // API
+    // axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=10f33fbc&app_key=43f9be24513291624d49476ed4d0dd73`)
+    // .then(apiResponse=>{
+    //     let foods = apiResponse.data.hits
+    //     res.render('foods/recipes.ejs', {foods})
+    //     // res.json(foods[0].recipe.label)
+    // })
+    res.render('home.ejs')
+
 })
 
 app.listen(8000, ()=>{
