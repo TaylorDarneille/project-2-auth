@@ -2,10 +2,22 @@
 
 <a href="/foods/recipes">Saved Recipes</a>
 
+<form method="GET" action="/foods/search">
+    <!-- we use the following for putting text before the search bar -->
+    <label for="recipeResult">Search for Recipes</label>
+    <input type="text" name="q">
+    <button type="submit">Search</button>
+</form>
+
+
 <% foods.forEach((food, idx) => { %>
     <div>
         <a href="/foods/<%= food.recipe.label %>">
             <%= food.recipe.label %>
         </a>
+        <form method="POST" action="/recipe">
+            <input hidden type="text" name="name" value="<%= food.recipe.label %>">
+            <button type="submit">Save</button>
+        </form>
     </div>
 <% }) %>

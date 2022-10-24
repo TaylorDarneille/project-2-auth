@@ -1,1 +1,11 @@
 <h1>One Recipe</h1>
+
+<h3><%= food.recipe.label %></h3>
+
+<img src="<%= food.recipe.image %>" alt="Food Image">
+
+<% food.recipe.ingredientLines.forEach((ingredient) => { %>
+    <div>
+        <p><%= ingredient %></p>
+    </div>
+<% }) %>
