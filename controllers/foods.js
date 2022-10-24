@@ -1,13 +1,6 @@
 const express = require('express')
 const db = require('../models')
 const router = express.Router()
-const cryptojs = require('crypto-js')
-require('dotenv').config()
-const bcrypt = require('bcrypt')
-
-router.get('/new', (req, res)=>{
-    res.render('users/new.ejs')
-})
 
 router.post('/', async (req, res)=>{
     const [newUser, created] = await db.user.findOrCreate({where:{email: req.body.email}})
