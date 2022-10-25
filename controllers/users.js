@@ -7,8 +7,13 @@ const bcrypt = require('bcrypt')
 
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs')
+
 })
 
+
+router.get('/user', (req, res)=>{
+    res.render('users/new.ejs')
+})
 router.post('/', async (req, res)=>{
     const [newUser, created] = await db.user.findOrCreate({where:{email: req.body.email}})
     if(!created){
