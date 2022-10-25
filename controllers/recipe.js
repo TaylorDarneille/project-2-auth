@@ -9,6 +9,10 @@ const bodyParser = require('body-parser')
 let  recipeUrl = '';
 let encoded = '';
 
+router.get('/show/:recipeName', (req,res) => {
+	
+})
+
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs')
 })
