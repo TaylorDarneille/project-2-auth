@@ -11,6 +11,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
+app.use(express.static('public'))
 
 // AUTHENTICATION MIDDLEWARE
 app.use(async (req, res, next)=>{

@@ -59,4 +59,30 @@ router.get('/profile', (req, res)=>{
     res.render('users/profile.ejs')
 })
 
+router.get('/courses', async (req, res)=>{
+    const courses = await db.course.findAll()
+    res.render('./courses.ejs', { course: courses })
+})
+
+router.get('/courses/studentlist', (req, res)=>{
+    res.render('./students.ejs')
+})
+
+router.get('/courses/studentlist/feedback', (req, res)=>{
+    res.render('./comments.ejs')
+})
 module.exports = router
+
+
+
+{/* <nav>
+        <ul>
+            <% if(user){ %>
+                <li><a href="/users/profile">Profile</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+            <% } else { %> 
+                <li><a href="/users/new">Sign Up</a></li>
+                <li><a href="/users/login">Login</a></li>
+            <% } %>
+        </ul>
+    </nav> */}

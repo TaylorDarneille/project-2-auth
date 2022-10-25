@@ -28,8 +28,7 @@ const names = [
 "Shaikha Albuflasa",
 "Sharifa",
 "Solein",
-"Sumaya",
-"test user"]
+"Sumaya"]
 
 names.forEach(studentName => {
     db.student.findOrCreate({
