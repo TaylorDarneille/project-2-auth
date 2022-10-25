@@ -5,7 +5,17 @@
 <img src="<%= food.recipe.image %>" alt="Food Image">
 
 <% food.recipe.ingredientLines.forEach((ingredient) => { %>
-    <div>
-        <p><%= ingredient %></p>
-    </div>
+    <% // a few undefined values were showing so if condition will make sure all displayed text is meaningful %>
+    <% if(ingredient != 'undefined') { %>
+        <div>
+            <p><%= ingredient %></p>
+        </div>
+    <% } %>
 <% }) %>
+
+<p>Calories = <%= food.recipe.calories %></p>
+
+<form method="POST" action="/foods/recipes">
+    <input hidden type="text" name="name" value="<%= food.recipe.label %>">
+    <button type="submit">Save</button>
+</form>

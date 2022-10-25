@@ -15,9 +15,5 @@
         <a href="/foods/<%= food.recipe.label %>">
             <%= food.recipe.label %>
         </a>
-        <form method="POST" action="/recipe">
-            <input hidden type="text" name="name" value="<%= food.recipe.label %>">
-            <button type="submit">Save</button>
-        </form>
     </div>
 <% }) %>
