@@ -64,7 +64,10 @@ router.get('/courses', async (req, res)=>{
     res.render('./courses.ejs', { course: courses })
 })
 
-router.get('/courses/studentlist', (req, res)=>{
+router.get('/courses/:id', (req, res)=>{
+    db.course.findOne({
+        where : {id : req.params.id}
+    })
     res.render('./students.ejs')
 })
 
