@@ -12,6 +12,9 @@ module.exports = {
       feedback: {
         type: Sequelize.STRING
       },
+      week: {
+        type: Sequelize.STRING
+      },
       userName: {
         type: Sequelize.STRING
       },
