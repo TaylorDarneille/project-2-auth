@@ -1,6 +1,4 @@
-<% recipe.hits.forEach(r => { %>
-  <p><%= r.recipe.label %></p>
-<%}) %>
+
 <div class='row'>
 	<div class='col s12 m12 l12'>
 		<% recipe.hits.forEach(function(recipe) { %>
@@ -13,13 +11,13 @@
 		</script> -->
 
 		<div class='col s12 m6 l6 all-recipes'>
-			<div class="card white recipe">
+			<div class="recipe">
                 
-                 <div class="card-image">
+                 <div class="image">
               		<img class='activator' src="<%= recipe.recipe.image %>" alt='<%= recipe.recipe.label %>'>
             	 </div>
-            	 <div class="card-content">
-            	 	<span class="card-title recipe-title"><%= recipe.recipe.label %></span>
+            	 <div class="content">
+            	 	<span class="recipe-title"><%= recipe.recipe.label %></span>
             	 	<h6><strong>Ingredients: </strong></h6>
             	 	<div class='ingredients'>
 	            	 	<ul>
@@ -42,10 +40,10 @@
                      <a class='left' href="/recipes/show/<%= encoded %>">View Details</a>
                      <a class='right' href="<%= recipe.recipe.url %>">Link to source</a>
                      <%if (user) { %>
-                     <button class='add-favorite btn-large green accent-4 text-white waves-effect col s12 m12 l12' type="submit">Add to &hearts;s</button>
+                     <button class=' m12 l12' type="submit">Add to &hearts;s</button>
                      <% } %>
-                      <%if (!user) { %>
-                        <a href='/auth/login' class='add-favorite btn-large green accent-4 text-white waves-effect col s12 m12 l12'>Log In to Add to &hearts;s</a>
+                      <%if (user) { %>
+                        <a href='/auth/login' class='im12 l12'>Log In to Add to &hearts;s</a>
                       <% } %>
                      <br>
                    </form>
@@ -58,7 +56,7 @@
 </div>
 
 <div class="scroller-status">
-  <div class="infinite-scroll-request loader-ellipse">
+  <div class="infinite-scroll-request loader">
     ...
   </div>
   <p class="infinite-scroll-last">End of content</p>

@@ -44,6 +44,10 @@ router.get('/', function(req, res) {
 
 module.exports = router;
 
+// <% recipe.hits.forEach(r => { %>
+// 	<p><%= r.recipe.label %></p>
+//   <%}) %>
+
 // <form id='sub' method="POST" action="/profile">
 //     <input class='center' hidden type="text" name="title" value="<%= recipe.recipe.title %>">
 //     <input class='center' hidden type="text" name="ingredients" value="<%= recipe.recipe.ingredientLines %>">
