@@ -12,6 +12,9 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
+      orderId: {
+        type: Sequelize.INTEGER
+      },
       price: {
         type: Sequelize.INTEGER
       },

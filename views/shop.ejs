@@ -1,0 +1,21 @@
+<%  allProducts.forEach(p => { %>
+
+    <img src="<%= p.photo %>" style="height:200px;width:200px;" >
+    <li><%= p.description %></li>
+    <li><%= p.price %> BHD</li>
+
+    <button type="submit">ADD TO CART</button>
+
+
+
+
+
+    <!-- <button> Add to cart </button> -->
+<%   })  %>
+
+
+<style>
+    li {
+        justify-content: center;
+    }
+</style>
