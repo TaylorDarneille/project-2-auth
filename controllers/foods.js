@@ -3,6 +3,10 @@ const db = require('../models')
 const router = express.Router()
 const axios = require('axios');
 
+router.get('/', async (req, res)=>{
+    res.redirect("/foods/search")
+})
+
 router.get('/recipes', async (req, res)=>{
 
     try {
@@ -54,9 +58,6 @@ router.post('/recipes', async (req, res)=>{
             }
           })
     })
-    .catch(err => {
-        res.send(err)
-    })
     .then (() => {
         res.redirect('/foods/recipes')
   })
@@ -65,6 +66,24 @@ router.post('/recipes', async (req, res)=>{
       res.send(err)
   })
 
+})
+
+router.delete("/recipes/:name", (req, res)=>{
+    console.log("This is my req params object: ", req.params.name)
+
+    try {
+        const foodDeleted = db.food.destroy({
+            where: {
+                name: req.params.name
+            }
+        })
+        console.log("Rows deleted num: ", foodDeleted)
+    } catch (err) {
+        console.log(err)
+    }
+
+
+    res.redirect("/foods/recipes")
 })
 
 router.get('/:name', async (req, res)=>{

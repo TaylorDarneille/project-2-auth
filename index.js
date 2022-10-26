@@ -6,11 +6,13 @@ const db = require('./models')
 const cryptoJS = require('crypto-js')
 require('dotenv').config()
 const axios = require('axios');
+const methodOverride = require("method-override");
 
 // MIDDLEWARE
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(cookieParser())
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({extended: false}))
 
 // AUTHENTICATION MIDDLEWARE
