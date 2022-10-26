@@ -1,8 +1,16 @@
-<h1><% course.forEach(element => { %>
+
+<p>Hello GA Folks!!</p>
+
+
+<ul>
+    
+    <% course.forEach(element => { %>
     <br><br>
-   <a href="/course/<%= element.id %>"><h1><%= element.name %></h1></a>
-   <h1> <%= element.description %> </h1>
+    <li> <a href="/users/courses/<%= element.id %>"><p><%= element.name %></p></a>
+   <p> <%= element.description %> </p>
+    </li>
+  
    <br><br>
    
-</h1>
+    </ul>
 <% });%>

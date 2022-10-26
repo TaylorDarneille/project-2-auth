@@ -45,7 +45,7 @@ router.post('/login', async (req, res)=>{
         const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        res.redirect('/')
+        res.redirect('/users/courses')
     }
 })
 
@@ -61,19 +61,34 @@ router.get('/profile', (req, res)=>{
 
 router.get('/courses', async (req, res)=>{
     const courses = await db.course.findAll()
-    res.render('./courses.ejs', { course: courses })
+    res.render('courses.ejs', { course: courses })
 })
 
 router.get('/courses/:id', (req, res)=>{
     db.course.findOne({
         where : {id : req.params.id}
+        // where : {id : req.params.id}
     })
-    res.render('./students.ejs')
+    .then(async (course) => {
+        if (!course) throw Error()
+        console.log('course', course)
+
+        let allStudents = await course.getStudents()
+
+        console.log('students', allStudents)
+
+        res.render('students.ejs', { student: allStudents, course: course})
+      })
+      .catch((error) => {
+        console.log(error)
+        res.send(error)
+      })
 })
 
-router.get('/courses/studentlist/feedback', (req, res)=>{
-    res.render('./comments.ejs')
+router.get('/courses/:id/student/:id', (req,res)=>{
+    res.render('./comments.ejs');
 })
+
 module.exports = router
 
 
