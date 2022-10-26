@@ -27,7 +27,7 @@ router.get('/', (req, res)=>{
   .then((response)=>{
     // console.log(response.data.items[0].volumeInfo)
     // res.send(response.data)
-    res.render ('results',{ BooksArrya: response.data.items})
+    res.render ('results',{ BooksArry: response.data.items})
   })
   .catch (err=>{
     console.log("there was an issue retrieving  API")
