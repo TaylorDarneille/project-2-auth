@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .ticket{
+        width: 400px;
+        height: 300px;
+		border: 2px solid blue;
+    }
+    
+</style>
+<body>
+    <h2>My Tickets are here ..</h2>
+   
+<div>
+    <div class="ticket">
+	<div class="title">
+		<p class="cinema"><%= user.name %></p>
+		<%= name %>
+		<p class="movie-title"><%= user.email %></p>
+	</div>
+	<div class="poster">
+        <p><%= event.event_type %></p>
+		<!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/25240/only-god-forgives.jpg" alt="Movie: Only God Forgives" /> -->
+	</div>
+	<div class="info">
+	
+	<table>
+		<tr>
+			<th>PRICE</th>
+			<th>DATE</th>
+		
+		</tr>
+		<tr>
+			<td><%= event.price %> </td>
+			<td><%= event.event_date %></td>
+		
+		</tr>
+	</table>
+	</div>
+	<div class="holes-lower"></div>
+	<div class="serial">
+		<table class="barcode"><tr></tr></table>
+		<table class="numbers">
+			<tr>
+				<td>9</td>
+				<td>1</td>
+				<td>7</td>
+				<td>3</td>
+				<td>7</td>
+				<td>5</td>
+				<td>4</td>
+				<td>4</td>
+				<td>4</td>
+				<td>5</td>
+				<td>4</td>
+				<td>1</td>
+				<td>4</td>
+				<td>7</td>
+				<td>8</td>
+				<td>7</td>
+				<td>3</td>
+				<td>4</td>
+				<td>1</td>
+				<td>4</td>
+				<td>5</td>
+				<td>2</td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>
+
+
+</body>
+</html>

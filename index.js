@@ -19,6 +19,7 @@ app.use(async (req, res, next)=>{
         const decryptedIdString = decryptedId.toString(cryptoJS.enc.Utf8)
         const user = await db.user.findByPk(decryptedIdString)
         res.locals.user = user
+        res.locals.name = 'Ibtisam'
     } else res.locals.user = null
     next()
 })
@@ -32,6 +33,6 @@ app.get('/', (req, res)=>{
     // res.render('home')
 })
 
-app.listen(8000, ()=>{
+app.listen(8011, ()=>{
     console.log('Project 2 Express Authentication')
 })

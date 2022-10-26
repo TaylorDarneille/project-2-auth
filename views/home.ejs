@@ -11,6 +11,7 @@
     position: relative;
     display: inline;
     width: 450px;
+    padding: 20px;
     height: 650px;
     background: url(./images/concert.jpg) no-repeat center;
     background-size: cover;
@@ -138,6 +139,7 @@
 #card-container {
     /* border: 2px solid red; */
     width: 95vw;
+    /* padding: 20px; */
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
@@ -167,12 +169,13 @@
                     </p>
                 </div>
                 <button class="action">
-                    <li class="click"><a href="/users/book">Booking</a></li>
+                    <li class="click"><a href="/users/book/<%= event.id %>">Booking</a></li>
                 </button>
             </div>
         </div>
         <% }) %>
     </div>
+    <a href="/users/terms"> Terms and conditions</a>
 
 </body>
 </html>

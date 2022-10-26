@@ -14,6 +14,12 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      cpr: {
+        type: Sequelize.INTEGER
+      },
+      age: {
+        type: Sequelize.INTEGER
+      },
       password: {
         type: Sequelize.STRING
       },
