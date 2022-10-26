@@ -1,7 +1,9 @@
 {
   "development": {
-    "database": "auth_boilerplate",
+    "database": "flawless",
     "host": "127.0.0.1",
+    "username": "postgres",
+    "password": "mram",
     "dialect": "postgres"
   },
   "test": {

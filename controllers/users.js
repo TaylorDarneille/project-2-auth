@@ -5,9 +5,42 @@ const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
 
+router.get('/contact', (req, res)=>{
+    res.render('contact.ejs')
+})
+
+router.get('/about', (req, res)=>{
+    res.render('about.ejs')
+})
+
+router.post('/newOrder', (req,res) => {
+
+    console.log('req.body', req.body)
+
+
+    // await db.user.find .. .. ..
+    // await db.order.findOrCreate({ .. .. req.body
+    // await db.product.find .. .. req.body 
+
+
+    
+    res.redirect('/users/myorder')
+})
+
+
+router.get('/myorder', (req,res) => {
+
+})
+
+
+router.get('/home', (req, res)=>{
+    res.render('home.ejs')
+})
+
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs')
 })
+
 
 router.post('/', async (req, res)=>{
     const [newUser, created] = await db.user.findOrCreate({where:{email: req.body.email}})
@@ -46,6 +79,16 @@ router.post('/login', async (req, res)=>{
     }
 })
 
+router.get('/shop', async (req,res) => {
+
+    try {
+        let allProducts = await db.product.findAll() 
+        res.render('shop.ejs', {allProducts})
+    } catch(err) {
+        res.json(err)
+    }
+})
+
 router.get('/logout', (req, res)=>{
     console.log('logging out')
     res.clearCookie('userId')
@@ -57,3 +100,5 @@ router.get('/profile', (req, res)=>{
 })
 
 module.exports = router
+
+

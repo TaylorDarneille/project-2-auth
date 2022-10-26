@@ -1,0 +1,71 @@
+<%  allProducts.forEach(p => { %>
+
+    <img src="<%= p.photo %>"> <br>
+    <li class="description"><%= p.description %></li>  <br> 
+    <li class="price"><%= p.price %> BHD</li>
+
+
+
+    <form action="/users/newOrder" method="post">
+        <input type="text" value="<%= p.description %>" name="desc">
+        <button type="submit">ADD TO CART</button>
+    </form>
+
+
+
+
+
+    <!-- <button> Add to cart </button> -->
+<%   })  %>
+
+
+<style>
+
+    body {
+        text-align: center;
+        background-color: rgb(246, 207, 213);
+        
+
+
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+}
+    .description {
+        font-family: monospace;
+        text-align: center;
+        font-size: 25px;
+    }
+    
+    .price {
+        font-family: monospace;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 900;
+
+
+    }
+
+    button {
+    background-color: gray;
+    font-family: monospace;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+
+
+
+
+</style>
