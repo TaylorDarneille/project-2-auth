@@ -1,7 +1,7 @@
 <%  allProducts.forEach(p => { %>
 
-    <img src="<%= p.photo %>">
-    <li class="description"><%= p.description %></li>
+    <img src="<%= p.photo %>"> <br>
+    <li class="description"><%= p.description %></li>  <br> 
     <li class="price"><%= p.price %> BHD</li>
 
 
@@ -20,22 +20,52 @@
 
 
 <style>
+
+    body {
+        text-align: center;
+        background-color: rgb(246, 207, 213);
+        
+
+
+    }
     img {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 250px;
-        height: 250px;
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
 }
     .description {
+        font-family: monospace;
         text-align: center;
-        font-size: 30px;
+        font-size: 25px;
     }
     
     .price {
+        font-family: monospace;
         text-align: center;
-        font-size: 30px;
+        font-size: 25px;
+        font-weight: 900;
+
 
     }
+
+    button {
+    background-color: gray;
+    font-family: monospace;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+
+
+
 
 </style>
