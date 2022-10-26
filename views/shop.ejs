@@ -1,10 +1,15 @@
 <%  allProducts.forEach(p => { %>
 
-    <img src="<%= p.photo %>" style="height:200px;width:200px;" >
-    <li><%= p.description %></li>
-    <li><%= p.price %> BHD</li>
+    <img src="<%= p.photo %>">
+    <li class="description"><%= p.description %></li>
+    <li class="price"><%= p.price %> BHD</li>
 
-    <button type="submit">ADD TO CART</button>
+
+
+    <form action="/users/newOrder" method="post">
+        <input type="text" value="<%= p.description %>" name="desc">
+        <button type="submit">ADD TO CART</button>
+    </form>
 
 
 
@@ -15,7 +20,22 @@
 
 
 <style>
-    li {
-        justify-content: center;
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 250px;
+        height: 250px;
+}
+    .description {
+        text-align: center;
+        font-size: 30px;
     }
+    
+    .price {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
 </style>

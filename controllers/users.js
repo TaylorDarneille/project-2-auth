@@ -13,6 +13,26 @@ router.get('/about', (req, res)=>{
     res.render('about.ejs')
 })
 
+router.post('/newOrder', (req,res) => {
+
+    console.log('req.body', req.body)
+
+
+    // await db.user.find .. .. ..
+    // await db.order.findOrCreate({ .. .. req.body
+    // await db.product.find .. .. req.body 
+
+
+    
+    res.redirect('/users/myorder')
+})
+
+
+router.get('/myorder', (req,res) => {
+
+})
+
+
 router.get('/home', (req, res)=>{
     res.render('home.ejs')
 })
