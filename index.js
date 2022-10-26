@@ -12,6 +12,10 @@ app.use(ejsLayouts)
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
 
+//link to CSS
+// app.use(express.static(‘public’))
+// app.use(‘/css’, express.static(__dirname + ‘/css’))
+
 // AUTHENTICATION MIDDLEWARE
 app.use(async (req, res, next)=>{
     if(req.cookies.userId) {
@@ -25,11 +29,20 @@ app.use(async (req, res, next)=>{
 
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
+app.use('/results', require('./controllers/results'))
+app.use('/detail', require('./controllers/detail'))
 
 // ROUTES
 app.get('/', (req, res)=>{
     res.render('home')
+  
 })
+
+
+
+
+
+
 
 app.listen(8000, ()=>{
     console.log('Project 2 Express Authentication')

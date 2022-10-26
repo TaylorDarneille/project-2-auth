@@ -1,0 +1,21 @@
+<style>
+    div{
+        display: inline-block;
+        margin: 0 10px;
+    }
+</style>
+ 
+ 
+<% BooksArrya.forEach(element=>{ %>
+    <div>
+        <% if (element.volumeInfo.imageLinks) { %>
+            <a href="/detail/<%= element.id %>">
+                <img src="<%= element.volumeInfo.imageLinks.thumbnail %>" >
+                <h4><%= element.volumeInfo.title %> </h4>
+            </a>
+           
+        <% } %>
+    </div>
+ 
+<% }) %> 
+ 

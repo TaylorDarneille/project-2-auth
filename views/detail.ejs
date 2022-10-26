@@ -1,0 +1,24 @@
+
+
+<div>
+    <img src="<%= books.volumeInfo.imageLinks.thumbnail %>">
+    <h4><%= books.volumeInfo.title %> </h4>
+    <p>Authors: <%= books.volumeInfo.authors%></p>
+    <p>Publisher:  <%= books.volumeInfo.publisher %></p>
+    <p>Published Date: <%= books.volumeInfo.publishedDate %></p>
+    <p>Language: <%= books.volumeInfo.language %></p>
+    <p>Categories: <%= books.volumeInfo.categories%></p>
+    <p>Description: <%= books.volumeInfo.description %></p>
+
+
+    <form action="/detail/<%= books.id %>" method="POST">
+        <label for="">reviews</label>
+        <input type="text" name="review">
+
+
+    </form>
+
+
+</div>
+
+
