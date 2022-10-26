@@ -5,7 +5,14 @@ const axios = require('axios');
 
 router.get('/recipes', async (req, res)=>{
 
-    res.render('foods/recipes.ejs')
+    try {
+        const allFoods = await db.food.findAll()
+        res.render('foods/recipes.ejs', {allFoods: allFoods})
+      } catch(err) {
+        res.send(err)
+      }
+
+    // res.render('foods/recipes.ejs')
 })
 
 router.get('/search', async (req, res)=>{
@@ -46,17 +53,17 @@ router.post('/recipes', async (req, res)=>{
                 image: foodData.recipe.image
             }
           })
-          .then (() => {
-              res.redirect('/foods/recipes')
-          })
-          .catch(err => {
-              console.log(err)
-              res.send(err)
-          })
     })
     .catch(err => {
         res.send(err)
     })
+    .then (() => {
+        res.redirect('/foods/recipes')
+  })
+  .catch(err => {
+      console.log(err)
+      res.send(err)
+  })
 
 })
 
