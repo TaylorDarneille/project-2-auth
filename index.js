@@ -43,6 +43,8 @@ app.get('/', (req, res)=>{
     .catch(err => {
         res.send(err)
     })
+
+    // res.render('home.ejs')
 })
 
 app.listen(8000, ()=>{
