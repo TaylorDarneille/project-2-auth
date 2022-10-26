@@ -1,1 +1,26 @@
-<h1>HI</h1>
+<h1><%= student.name %></h1>
+
+<form action="/users/course/<%= courseId %>/comments/<%= student.id %>" method="post">
+    <div class="mb-3">
+    <label for="Input1" class="form-label1">Week No.</label>
+    <input type="text" class="form-control1" id="Input1" placeholder="Ex. week 35" name="week">
+    </div>
+      <br><br>
+      <div class="mb-3">
+        <label for="Textarea1" class="form-label2"></label>
+        <textarea class="form-control2" id="Textarea1" rows="10" placeholder="Positive Feedbacks only" name="feedback"></textarea>
+    
+        <button type="submit">Submit</button>
+      </div>
+</form>
+
+<% if (student.comments) { %>
+
+<% student.comments.forEach(c => { %>
+    <p><%= c.feedback %> </p>
+    <p><%= c.userName %> </p>
+    <p><%= moment(c.createdAt).calendar() %> </p>
+<% }) %>
+
+<% } %>
+

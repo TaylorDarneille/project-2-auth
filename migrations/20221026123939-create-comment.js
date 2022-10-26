@@ -12,14 +12,14 @@ module.exports = {
       feedback: {
         type: Sequelize.STRING
       },
-      week: {
-        type: Sequelize.STRING
-      },
       userName: {
         type: Sequelize.STRING
       },
-      studentName: {
-        type: Sequelize.STRING
+      studentId: {
+        type: Sequelize.INTEGER
+      },
+      week:{
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

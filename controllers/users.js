@@ -4,6 +4,7 @@ const router = express.Router()
 const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
+const { where } = require('sequelize')
 
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs')
@@ -85,22 +86,51 @@ router.get('/courses/:id', (req, res)=>{
       })
 })
 
-router.get('/courses/:id/student/:id', (req,res)=>{
-    res.render('./comments.ejs');
+router.get('/courses/:courseId/student/:studentId', async (req,res)=>{
+    const students = await db.student.findOne({
+            where : {id : req.params.studentId},
+            include: [db.comment]
+        })
+    
+        // const comments = await db.comment.findAll()
+        res.send()
+    res.render('./comments.ejs', {student: students, courseId: req.params.courseId})
 })
 
+
+
+router.post('/course/:courseId/comments/:studentId', async (req,res) =>{
+    console.log('req.body', req.body)
+    console.log('req.params', req.params)
+
+
+    const student = await db.student.findByPk(req.params.studentId)
+
+    const user = await db.user.findByPk(res.locals.user.id)
+
+    const [newFeedback, created] = await db.comment.findOrCreate({
+        where:  {
+            week:req.body.week,
+            feedback: req.body.feedback,
+            userName: user.name,
+            studentId: student.id
+            }
+        })
+
+    res.redirect(`/users/courses/${req.params.courseId}/student/${req.params.studentId}`)
+    // res.send('testing in progress...')
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router
-
-
-
-{/* <nav>
-        <ul>
-            <% if(user){ %>
-                <li><a href="/users/profile">Profile</a></li>
-                <li><a href="/users/logout">Logout</a></li>
-            <% } else { %> 
-                <li><a href="/users/new">Sign Up</a></li>
-                <li><a href="/users/login">Login</a></li>
-            <% } %>
-        </ul>
-    </nav> */}
