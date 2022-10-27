@@ -33,16 +33,17 @@ app.use('/foods', require('./controllers/foods'))
 // ROUTES
 app.get('/', (req, res)=>{
     // API
-    axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.query.q}&app_id=${process.env.ID}&app_key=${process.env.KEY}`)
-    .then(apiResponse=>{
-        let foods = apiResponse.data.hits
+    // axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.query.q}&app_id=${process.env.ID}&app_key=${process.env.KEY}`)
+    // .then(apiResponse=>{
+        // let foods = apiResponse.data.hits
+        let foods = null
         res.render('home.ejs', {foods})
         // res.render('home.ejs', {foods})
         // res.json(foods[0].recipe.label)
-    })
-    .catch(err => {
-        res.send(err)
-    })
+    // })
+    // .catch(err => {
+    //     res.send(err)
+    // })
 
     // res.render('home.ejs')
 })

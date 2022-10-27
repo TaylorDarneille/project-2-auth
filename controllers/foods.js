@@ -10,24 +10,26 @@ router.get('/', async (req, res)=>{
 router.get('/recipes', async (req, res)=>{
 
     try {
-        const allFoods = await db.food.findAll()
+        // const allFoods = await db.food.findAll()
+        let allFoods = await res.locals.user.getFood()
         res.render('foods/recipes.ejs', {allFoods: allFoods})
       } catch(err) {
         res.send(err)
       }
 
-    try {
-        const user = await db.user.findOne({
-            where: {
-                id: res.locals.user.id
-            },
-            include: [db.food]
-        })
-        console.log("This is user output: " + user)
-        res.render('foods/recipes.ejs')
-    } catch(err) {
-        res.send(err)
-    }
+    // try {
+    //     const user = await db.user.findOne({
+    //         where: {
+    //             id: res.locals.user.id
+    //         },
+    //         include: [db.food]
+    //     })
+    //     console.log("This is user output: " + user)
+    //     res.render('foods/recipes.ejs')
+    // }
+    // catch(err) {
+    //     res.send(err)
+    // }
 
     // res.render('foods/recipes.ejs')
 })
@@ -50,7 +52,8 @@ router.get('/search', async (req, res)=>{
 })
 
 router.post('/recipes', async (req, res)=>{
-    const user = await db.user.findByPk(res.locals.user.id)
+    let user = res.locals.user
+    // let user = await db.user.findByPk(res.locals.user.id)
 
     // let [food, created] = await db.food.findOrCreate({
     //     where: {name:'test'}
@@ -58,32 +61,28 @@ router.post('/recipes', async (req, res)=>{
     // console.log(food)
     // res.json(food)
 
-    axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.body.name}&app_id=10f33fbc&app_key=43f9be24513291624d49476ed4d0dd73`)
-    // APICall(req.body.name)
-    .then(apiResponse=>{
+    try {
+
+        const apiResponse = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.body.name}&app_id=10f33fbc&app_key=43f9be24513291624d49476ed4d0dd73`)
+        // APICall(req.body.name)
+        // res.json(apiResponse.data.hits[0].recipe)
         let foodData = apiResponse.data.hits[0]
-        db.food.findOrCreate({
+        let [newFood, created] = await db.food.findOrCreate({
             where: {
-              // name: req.body.name
+                // name: req.body.name
                 name: foodData.recipe.label,
                 recipe: foodData.recipe.ingredientLines.toString(),
                 calories: foodData.recipe.calories,
                 image: foodData.recipe.image
             }
-          })
-    })
-    .then ((food, created) => {
-        if (user) {
-                user.addFood(food)
-        }
-    })
-    .then (() => {
+            })
+        await user.addFood(newFood)
+        let food = await db.food.findByPk(newFood.id)
         res.redirect('/foods/recipes')
-  })
-  .catch(err => {
-      console.log(err)
-      res.send(err)
-  })
+    } catch(err) {
+        console.log(err)
+        res.send(err)
+    }
 
 })
 

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   food.init({
     name: DataTypes.STRING,
-    recipe: DataTypes.STRING,
+    recipe: DataTypes.TEXT,
     calories: DataTypes.INTEGER,
     image: DataTypes.TEXT
   }, {

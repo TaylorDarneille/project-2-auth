@@ -17,7 +17,8 @@
 
 <p>Calories = <%= food.recipe.calories %></p>
 
+<% // name is the key in the returned object %>
 <form method="POST" action="/foods/recipes">
-    <input hidden type="text" name="name" value="<%= food.recipe.label %>">
+    <input hidden type="text" name="name" autocomplete="off" value="<%= food.recipe.label %>">
     <button type="submit">Save</button>
 </form>
