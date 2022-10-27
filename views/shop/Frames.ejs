@@ -1,1 +1,20 @@
-<h1>Frames Shop</h1>
+
+
+
+
+<%  allFrames.forEach(frames => { %>
+    <div>
+
+
+        <p><%= frames.brandName %></p>
+        <p><%= frames.category %></p>
+        <p><%= frames.color %></p>
+        <p><%= frames.price %></p>
+        <img src="<%= frames.img %>">
+        <button href ="shop/order">ADD TO BAG </button>
+
+    </div>
+
+<%   })  %>
+
+ 

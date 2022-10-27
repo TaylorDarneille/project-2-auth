@@ -23,18 +23,31 @@ app.use(async (req, res, next)=>{
     next()
 })
 
+app.get('/', (req, res)=>{
+    // if(res.locals.user){
+
+        
+
+    //     res.render('profile') 
+    // }else{
+    //     res.render('home')
+    // }
+    res.send('something')
+})
+
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
 app.use('/shop', require('./controllers/shop'))
+app.use('/orders', require('./controllers/orders'))
 
 // ROUTES
 app.get('/', (req, res)=>{
     res.render('home')
 })
-
-app.get('/shop', (req,res)=>{
-    res.render('shop');
-})
-app.listen(8000, ()=>{
+//app.get('/shop', (req,res)=>{
+  //rs
+  //  res.render('shop');
+//})
+app.listen(9000, ()=>{
     console.log('Project 2 Express Authentication')
 })

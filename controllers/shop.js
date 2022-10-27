@@ -4,36 +4,116 @@ const db = require('../models')
 const router = express.Router()
 require('dotenv').config()
 
-router.get('/home', (req, res)=>{
-    res.render('shop.ejs')
+
+
+
+
+router.get('/shop/Order', (req, res)=>{
+    res.render('Order.ejs')
+})
+
+router.get('/:product', async (req, res)=>{
+    try {
+        let product = req.params.product.toLowerCase()
+        const allFrames = await db.product.findAll({
+            where: {
+                category: product
+            }
+        })
+        console.log(allFrames)
+            res.render('shop/frames.ejs', {allFrames: allFrames})
+
+      } catch(err) {
+        res.send(err)
+}
+})
+
+router.delete('/:productId', async (req,res) =>{
+
+    //we need to delete pokemon with id productsId
+
+    await db.product.destroy({
+
+        where: { id: req.params.productId}
+    })
+    
+    res.redirect('/product/orders')
+})
+
+// router.get('/:price', async (req, res)=>{
+//     // get price
+//     try {
+//         let product = req.params.product.toLowerCase()
+//         const allFrames = await db.product.findAll({
+//             where: {
+//                 price : product
+//             }
+//         })
+//         console.log(allFrames)
+//             res.render('shop/glasses.ejs', {allFrames: allFrames})
+
+//       } catch(err) {
+//         res.send(err)
+// }
+// })
+
+
+
+// router.get('/Frames', async (req, res)=>{
+//     try {
+//         const allFrames = await db.product.findAll({
+//             where: {
+//             category: "frames"
+//             }
+//         })
+//         console.log(allFrames)
+//         res.render('shop/Frames.ejs', {allFrames})
+//       } catch(err) {
+//         res.send(err)
+// }
+// })
+
+// router.get('/product', async (req, res)=>{
+
+//     try {
+//         const products = await db.product.findAll({
+//             where: {
+//                 type: "products"
+//             }
+//         })
+//         res.render('shop/product.ejs', {products: products})
+//       } catch(err) {
+//         res.send(err)
+//       }
+
+
+// })
+
+
+router.get('/chain', (req, res)=>{
+    res.render('shop/chain.ejs')
+})
+
+router.get('/order', (req, res)=>{
+    res.render('shop/order.ejs')
 })
 
 
-router.get('/glasses', (req, res)=>{
-    res.render('shop/glasses.ejs')
-})
-
-router.get('/Frames', (req, res)=>{
-    res.render('shop/Frames.ejs')
-})
-
-router.get('/glasses-chain', (req, res)=>{
-    res.render('shop/glasses-chain.ejs')
-})
 
 router.get('/search',  (req, res) => {
+    
     
     let search = req.query.searchBar
 
     console.log(search)
 
-    //    const product = await db.product.findOne({
+   //    const product = db.product.findOne({
     //         where: {
-    //             glasses: req.body.glasses,
-    //             frames: req.body.frames
-                
-    //         } 
-    //     })   
+    //            glasses: req.body.glasses,
+    //            frames: req.body.frames
+     //           chain: req.body.chain
+     //       } 
+     //  })   
     
     res.render('shop.ejs')
                 
@@ -47,8 +127,11 @@ router.get('/search',  (req, res) => {
 
 // router/this.post('/')
 
+
+
 // module.exports = router
 
 
 module.exports = router;
+
 
