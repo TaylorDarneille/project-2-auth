@@ -10,7 +10,7 @@
 </form>
 
 
-<% if(foods != null) { %>
+<% if(foods) { %>
     <% foods.forEach((food, idx) => { %>
         <div>
             <a href="/foods/<%= food.recipe.label %>">
