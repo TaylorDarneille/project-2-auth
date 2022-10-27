@@ -7,7 +7,8 @@
 
 
     <form action="/users/newOrder" method="post">
-        <input type="text" value="<%= p.description %>" name="desc">
+        <input type="hidden" value="<%= p.price %>" name="name">
+        <!-- <input type="text" name="desc"> -->
         <button type="submit">ADD TO CART</button>
     </form>
 
@@ -47,8 +48,6 @@
         text-align: center;
         font-size: 25px;
         font-weight: 900;
-
-
     }
 
     button {

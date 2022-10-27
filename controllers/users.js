@@ -13,25 +13,41 @@ router.get('/about', (req, res)=>{
     res.render('about.ejs')
 })
 
-router.post('/newOrder', (req,res) => {
+// router.post('/newOrder', async (req,res) => {
 
-    console.log('req.body', req.body)
+//     console.log('req.body', req.body)
+
+//     let user = res.locals.user
+//     let [myorder , created] = await db.product.findOrCreate({
+//         where: {
+//             name: req.body.name
+//         }
+//     })
+//     await user.addOrder.id(myorder)
+//     let cart = await db.order.findByPk(cart)
+//     res.json(myorder)
 
 
-    // await db.user.find .. .. ..
-    // await db.order.findOrCreate({ .. .. req.body
-    // await db.product.find .. .. req.body 
 
 
-    
-    res.redirect('/users/myorder')
+//     // await db.user.find .. .. ..
+//     // await db.order.findOrCreate({ .. .. req.body
+//     // await db.product.find .. .. req.body 
+
+
+
+//     // res.redirect('/users/myorder')
+// })
+
+// router.get('/cart' )
+
+// router.get('/myorder', (req,res) => {
+
+// })
+
+router.get('/Cart', (req, res)=>{
+    res.render('Cart.ejs')
 })
-
-
-router.get('/myorder', (req,res) => {
-
-})
-
 
 router.get('/home', (req, res)=>{
     res.render('home.ejs')
