@@ -16,6 +16,19 @@ router.get('/recipes', async (req, res)=>{
         res.send(err)
       }
 
+    try {
+        const user = await db.user.findOne({
+            where: {
+                id: res.locals.user.id
+            },
+            include: [db.food]
+        })
+        console.log("This is user output: " + user)
+        res.render('foods/recipes.ejs')
+    } catch(err) {
+        res.send(err)
+    }
+
     // res.render('foods/recipes.ejs')
 })
 
@@ -37,6 +50,7 @@ router.get('/search', async (req, res)=>{
 })
 
 router.post('/recipes', async (req, res)=>{
+    const user = await db.user.findByPk(res.locals.user.id)
 
     // let [food, created] = await db.food.findOrCreate({
     //     where: {name:'test'}
@@ -57,6 +71,11 @@ router.post('/recipes', async (req, res)=>{
                 image: foodData.recipe.image
             }
           })
+    })
+    .then ((food, created) => {
+        if (user) {
+                user.addFood(food)
+        }
     })
     .then (() => {
         res.redirect('/foods/recipes')
