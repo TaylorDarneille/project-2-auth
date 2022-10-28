@@ -1,0 +1,11 @@
+
+<h1><%= course.name%></h1>
+
+<ul>
+    <% student.forEach(element => { %>
+        <br><br>
+       <li><a href="/users/courses/<%= course.id %>/student/<%= element.id %>"><p><%= element.name %></p></a></li>
+       
+    <% });%>
+
+</ul>
