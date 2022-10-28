@@ -32,14 +32,5 @@ async function createEvent() {
 createEvent()
 
 
-{/* <ul class="items">
-    <% allEvents.forEach(event => { %>
-        <p><%= event.event_type %></p>
-        <li><%= event.event_description %></li><br><br>
-        <p>Price : <%= event.price %> BD</p>
-        <p><%= event.event_date  %> </p>
-        <% }) %>
-        <% console.log(allEvents) %> 
-    </ul>  */}
 
 
