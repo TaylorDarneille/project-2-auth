@@ -1,7 +1,7 @@
 const db = require('./models')
 
 const names = [
-"Abdulla Almehaiza",
+    "Abdulla Almehaiza",
 "Ahmed Al-Thawadi",
 "Alya Abdulla",
 "Ameera Ali",
@@ -28,7 +28,8 @@ const names = [
 "Shaikha Albuflasa",
 "Sharifa",
 "Solein",
-"Sumaya"]
+"Sumaya",
+"Layla"]
 
 names.forEach(studentName => {
     db.student.findOrCreate({

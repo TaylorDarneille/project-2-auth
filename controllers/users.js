@@ -93,10 +93,9 @@ router.get('/courses/:courseId/student/:studentId', async (req,res)=>{
         })
     
         // const comments = await db.comment.findAll()
-        res.send()
+        // res.send()
     res.render('./comments.ejs', {student: students, courseId: req.params.courseId})
 })
-
 
 
 router.post('/course/:courseId/comments/:studentId', async (req,res) =>{
@@ -122,15 +121,48 @@ router.post('/course/:courseId/comments/:studentId', async (req,res) =>{
 })
 
 
+router.delete('/course/:courseId/comments/:studentId', async (req,res) =>{
+    console.log('req.body', req.body)
+    console.log('req.params', req.params)
 
 
+    const student = await db.student.findByPk(req.params.studentId)
+
+    const user = await db.user.findByPk(res.locals.user.id)
+
+        // router.delete(`/users/courses/${req.params.courseId}/student/${req.params.studentId}`, async(req,res) =>{
+            await db.comment.destroy({
+                where:  {
+                    week:req.body.week,
+                    feedback: req.body.feedback,
+                    userName: user.name,
+                    studentId: student.id
+                }})
+        // })
+    res.redirect(`/users/courses/${req.params.courseId}/student/${req.params.studentId}`)
+    // res.send('testing in progress...')
+})
+
+// router.put('/course/:courseId/comments/:studentId', async (req,res) =>{
+//     console.log('req.body', req.body)
+//     console.log('req.params', req.params)
 
 
+//     const student = await db.student.findByPk(req.params.studentId)
 
+//     const user = await db.user.findByPk(res.locals.user.id)
 
-
-
-
-
+//         router.update(`/users/courses/${req.params.courseId}/student/${req.params.studentId}`, async(req,res) =>{
+//             await db.comment.update({
+//                 where:  {
+//                     week:req.body.week,
+//                     feedback: req.body.feedback,
+//                     userName: user.name,
+//                     studentId: student.id
+//                 }})
+//         })
+//     res.redirect(`/users/courses/${req.params.courseId}/student/${req.params.studentId}`)
+    // res.send('testing in progress...')
+// })
 
 module.exports = router

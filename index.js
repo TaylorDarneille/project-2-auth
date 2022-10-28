@@ -6,10 +6,12 @@ const db = require('./models')
 const moment = require('moment')
 const cryptoJS = require('crypto-js')
 require('dotenv').config()
+const methodOrride = require('method-override')
 
 // MIDDLEWARE
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+app.use(methodOrride('_method'))
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
 app.use(express.static('public'))
