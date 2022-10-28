@@ -19,14 +19,15 @@
 <% if (student.comments) { %>
   
   <% student.comments.forEach(c => { %>
-    <p><%= c.feedback %> </p>
-    <p><%= c.userName %> </p>
+    <p> Feedback: <%= c.feedback %> </p>
+    <p> Written by: <%= c.userName %> </p>
+    <p> Week: <%= c.week %> </p>
     <p><%= moment(c.createdAt).calendar() %> </p>
 
-    <form action="/users/course/<%= courseId %>/comments/<%= student.id %>?_method=PUT">
+    <!-- <form action="/users/course/<%= courseId %>/comments/<%= student.id %>?_method=PUT">
       <button type="submit" class="btn1">Edit feedback</button>
     </form>
-    <br>
+    <br> -->
 
     <form action="/users/course/<%= courseId %>/comments/<%= student.id %>?_method=DELETE" method="POST">
       <input type="hidden" value="<%= c.feedback %>" name="feedback">
