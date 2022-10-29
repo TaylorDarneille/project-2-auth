@@ -22,7 +22,7 @@ router.post('/', async (req, res)=>{
         // SECRET is used to encrypt the username
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        res.redirect('/')
+        res.redirect('/foods')
     }
 })
 
@@ -43,7 +43,7 @@ router.post('/login', async (req, res)=>{
         const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        res.redirect('/')
+        res.redirect('/foods')
     }
 })
 

@@ -4,8 +4,13 @@ const router = express.Router()
 const axios = require('axios');
 
 router.get('/', async (req, res)=>{
-    res.redirect("/foods/search")
+    let foods = []
+    res.render('foods/home.ejs', {foods})
 })
+
+// router.get('/search', async (req, res)=>{
+//     res.redirect("/foods/search")
+// })
 
 router.get('/recipes', async (req, res)=>{
 
@@ -43,7 +48,7 @@ router.get('/search', async (req, res)=>{
         let foods = apiResponse.data.hits
         // console.log(foods)
         // res.render('foods/recipes.ejs', {foods})
-        res.render('home.ejs', {foods})
+        res.render('foods/home.ejs', {foods})
         // res.json(foods[0].recipe.label)
     })
     .catch(err => {
