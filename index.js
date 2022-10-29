@@ -19,7 +19,9 @@ app.use(async (req, res, next)=>{
         const decryptedIdString = decryptedId.toString(cryptoJS.enc.Utf8)
         const user = await db.user.findByPk(decryptedIdString)
         res.locals.user = user
-    } else res.locals.user = null
+    } else {
+        res.locals.user = null
+    }
     next()
 })
 
