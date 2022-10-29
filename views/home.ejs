@@ -1,1 +1,158 @@
-<h2>Home</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.card {
+    position: relative;
+    display: inline;
+    width: 450px;
+    padding: 20px;
+    height: 650px;
+    /* background: url(./images/concert.jpg) no-repeat center; */
+    background-size: cover;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-rows: 60% 40%;
+}
+
+.product-info {
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+    "empty title title"
+    "info info action";
+    justify-items: center;
+    align-items: center;
+    grid-gap: 16px;
+    padding: 20px;
+}
+
+.product-info * {
+    position: relative;
+}
+
+.title {
+    grid-area: title;
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.additional-info {
+    grid-area: info;
+}
+
+.additional-info p {
+    font-size: 0.9em;
+    margin-top: 8px;
+    letter-spacing: 0.7px;
+}
+
+.action {
+    grid-area: action;
+}
+
+.price {
+    position: absolute;
+    top: -20%;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    color: #dd5e89;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.product-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 300%;
+    background: linear-gradient(to bottom, #eb5285 0%, #ffe44e 51%, #dd5e89 100%);
+    transform: rotate(-8deg);
+    border-top-right-radius: 100px;
+}
+
+    .items{
+        padding: 20px;
+        margin: 80px;
+    }
+    .container {
+    display: flex;
+    justify-content: center;
+}
+
+#boxes {
+    min-height: 100px;
+    margin-top: 20px;
+}
+
+#boxes .box {
+    background-color: grey;
+    margin-top: 20px;
+    border-radius: 50px;
+    margin-left: 20px;
+    float: left;
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+  }
+
+#boxes .fab {
+    padding: 0 5px;
+}
+
+#card-container {
+   
+    width: 95vw;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.click{
+    background-color: blue;
+    border-radius: 30px;
+}
+</style>
+<body>
+    <h2>Home Page</h2>
+    <div id="card-container">
+        <% allProducts.forEach(product => { %>
+            <div class="card">
+                <section class="top"></section>
+            <div class="product-info">
+                <p class="price"> <%= product.price %> BD</p>
+                <p class="title"><%= product.productName %></p>
+        
+                <div class="additional-info">
+                    <p class="info">
+                        <%= product.productDescription %>
+                    </p>
+                </div>
+                <button class="action">
+                    <li class="click"><a href="/users/order/<%= product.id %>">Booking</a></li>
+                </button>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+
+</body>
+</html>
