@@ -16,9 +16,9 @@
     <% if(foods) { %>
         <% foods.forEach((food, idx) => { %>
             <div class="results">
-                <img class="results-image" src="<%= food.recipe.image %>" alt="image">
                 <a href="/foods/<%= food.recipe.label %>">
-                    <%= food.recipe.label %>
+                    <img class="results-image" src="<%= food.recipe.image %>" alt="image">
+                    <span id="results-image-label"><%= food.recipe.label %></span>
                 </a>
             </div>
         <% }) %>
