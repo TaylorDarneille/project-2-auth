@@ -56,8 +56,9 @@ router.get('/logout', (req, res)=>{
     res.redirect('/')
 })
 
-router.get('/profile', (req, res)=>{
-    res.render('users/profile.ejs')
+router.get('/profile', async (req, res)=>{
+    const courses = await db.course.findAll()
+    res.render('users/profile.ejs', { course: courses })
 })
 
 router.get('/courses', async (req, res)=>{
