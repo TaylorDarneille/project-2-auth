@@ -1,21 +1,26 @@
-<h1>Your Home</h1>
+<div class="search-container">
 
-<a class="link" href="/foods/recipes">Saved Recipes</a>
+    <div class="home-title"><h1>Find Your Recipe</h1></div>
 
-<form method="GET" action="/foods/search">
-    <!-- we use the following for putting text before the search bar -->
-    <label for="recipeResult">Search for Recipes</label>
-    <input type="text" name="q" autocomplete="off">
-    <button type="submit">Search</button>
-</form>
+    <div class="search-input-container">
+        <form method="GET" action="/foods/search">
+            <label class="search-label" for="recipeResult">Search for Recipes</label>
+            <input type="text" name="q" autocomplete="off" class="search-input" placeholder="Recipe name">
+            <button class="search-button" type="submit">Search</button>
+        </form>
+    </div>
 
+</div>
 
-<% if(foods) { %>
-    <% foods.forEach((food, idx) => { %>
-        <div>
-            <a href="/foods/<%= food.recipe.label %>">
-                <%= food.recipe.label %>
-            </a>
-        </div>
-    <% }) %>
-<% } %>
+<div class="results-container">
+    <% if(foods) { %>
+        <% foods.forEach((food, idx) => { %>
+            <div class="results">
+                <img class="results-image" src="<%= food.recipe.image %>" alt="image">
+                <a href="/foods/<%= food.recipe.label %>">
+                    <%= food.recipe.label %>
+                </a>
+            </div>
+        <% }) %>
+    <% } %>
+</div>

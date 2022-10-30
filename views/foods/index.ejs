@@ -1,10 +1,10 @@
 <h1>One Recipe</h1>
 
-<a href="/foods">Home</a>
+<!-- <a href="/foods">Home</a> -->
 
 <h3><%= food.recipe.label %></h3>
 
-<img src="<%= food.recipe.image %>" alt="Food Image">
+<img src="<%= food.recipe.image %>" alt="image">
 
 <% food.recipe.ingredientLines.forEach((ingredient) => { %>
     <% // a few undefined values were showing so if condition will make sure all displayed text is meaningful %>
