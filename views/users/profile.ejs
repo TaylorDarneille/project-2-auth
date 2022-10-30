@@ -1,1 +1,16 @@
-<h2>Hello, <%= user.email%> :)</h2>
+<h2>Hello, <%= user.name%> ❤️ </h2>
+
+<h4>List of favorite book</h4>
+
+<% faves.forEach(b => { %>
+
+    <li><%= b.bookTitle %></li>
+
+    <img src="<%= b.bookImage%>" alt="">
+
+    <form method="POST" action="/profile/<%= b.bookId %>?_method=DELETE">
+        <button type="submit">delete</button>
+    </form>
+    
+    
+<% })  %>
