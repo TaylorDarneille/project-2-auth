@@ -80,19 +80,19 @@ router.post('/profile', async (req, res)=>{
       }) 
               
        await book.addUser(user)
-      res.redirect(`/users/profile`) 
-    //    console.log("your favortie ")    
-      } 
-      catch(error) {
+       //    console.log("your favortie ")    
+    } 
+    catch(error) {
         console.log("error", error)
-     }
+    }
+    res.redirect(`/users/profile`) 
 })
 
-router.delete('/profile', async (req,res) => {
+router.delete('/profile/:bookId', async (req,res) => {
 
     
     await db.book.destroy({
-        where: { id: req.body.bookId }
+        where: { bookId: req.body.bookId }
     })
     res.redirect(`/users/profile`) 
 })
