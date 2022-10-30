@@ -10,7 +10,11 @@ router.get('/new', (req, res)=>{
 })
 
 router.post('/', async (req, res)=>{
-    const [newUser, created] = await db.user.findOrCreate({where:{email: req.body.email}})
+    const [newUser, created] = await db.user.findOrCreate({
+        where:{
+            name: req.body.name,
+            email: req.body.email
+        }})
     if(!created){
         console.log('user already exists')
         res.render('users/login.ejs', {error: 'Looks like you already have an account! Try logging in :)'})
@@ -54,6 +58,41 @@ router.get('/logout', (req, res)=>{
 
 router.get('/profile', (req, res)=>{
     res.render('users/profile.ejs')
+})  
+router.get('/book/:productId', (req, res)=>{
+    res.render('users/book.ejs', {productId: req.params.productId})
 })
+
+router.get('/home', async (req, res)=>{
+    try {
+        let allProducts = await db.product.findAll({})
+        res.render('home.ejs', {allProducts})
+    } catch(err) {
+        res.send(err)
+    }
+})
+
+    router.post('/book/:productId', async (req, res) => {
+        
+        try {
+            const user = await db.user.findOne({ where: { 
+                email: req.body.email}
+             
+        })
+           
+            const product = await db.product.findByPk(req.params.productId)
+      
+            user.addProduct(product)
+            
+            res.render('users/product.ejs', {product: product})
+        } catch(err) {
+            res.json(err)
+        }
+
+
+        router.get('/book/allProducts', async (req,res) => {
+            
+        })
+      })
 
 module.exports = router
