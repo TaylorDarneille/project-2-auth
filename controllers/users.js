@@ -5,6 +5,8 @@ const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
 
+
+
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs')
 })
@@ -62,37 +64,46 @@ router.get('/profile', (req, res)=>{
 router.get('/book/:productId', (req, res)=>{
     res.render('users/book.ejs', {productId: req.params.productId})
 })
+router.get('/', async(req, res)=>{
+        res.render('new.ejs', {allProducts})
+})
 
-router.get('/home', async (req, res)=>{
-    try {
-        let allProducts = await db.product.findAll({})
+router.get('/home', async(req, res)=>{
+    // try {
+        let allProducts = await db.products.findAll()
+        // res.json(allProducts)
         res.render('home.ejs', {allProducts})
-    } catch(err) {
-        res.send(err)
-    }
+    // } catch(err) {
+    //     res.send(err)
+    // }
+})
+router.get('/booking', async(req, res)=>{
+    
+        let allOrders = await db.orders.findAll()
+        res.render('users/order.ejs', {allOrders})
 })
 
     router.post('/book/:productId', async (req, res) => {
         
         try {
-            const user = await db.user.findOne({ where: { 
-                email: req.body.email}
-             
-        })
+            // const user = await db.user.findOne({ where: { 
+            //     email: req.body.email}
+            const user = res.locals.user
+        
            
-            const product = await db.product.findByPk(req.params.productId)
+            const product = await db.products.findByPk(parseInt(req.params.productId))
       
-            user.addProduct(product)
+           await user.addProduct(product)
             
             res.render('users/product.ejs', {product: product})
         } catch(err) {
-            res.json(err)
+            console.log('error catch reached!')
+            console.log(err)
+            res.send(err)
         }
-
-
-        router.get('/book/allProducts', async (req,res) => {
-            
-        })
-      })
-
+    })
+    
+    router.get('/book/allProducts', async (req,res) => {
+        
+    })
 module.exports = router

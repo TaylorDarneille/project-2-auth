@@ -31,7 +31,7 @@ app.use('/users', require('./controllers/users'))
 
 // ROUTES
 app.get('/', (req, res)=>{
-    res.render('home')
+    res.render('Home')
 })
 
 app.listen(9000, ()=>{
