@@ -23,7 +23,7 @@ router.get('/:bookId', async (req,res) => {
     where: {bookId: id},
     include: [db.user]
  })
-  console.log(reviews)
+  // console.log(reviews)
 
   let bookDetails = bookAPIId.data
   // res.json({reviews})
@@ -55,52 +55,7 @@ router.post('/:bookId', async (req,res)=>{
   }
 })
 
-//add book to favortie
-router.post('/favortie/:bookId',async (req , res)=>{
+ 
   
-  try {
-        
-    const [book, bookCreated] = await db.book.findOrCreate({
-    where: {
-      bookTitle: req.body.bookTitle,
-      bookImage: req.body.bookImage
-
-      
-    }
-   })
-          
-    const user = await db.user.findAll({
-    where:{
-      id: res.locals.user.dataValues.id
-    }
-  
-  }) 
-          
-   await book.addUser(user)
-  res.redirect(`/books/${req.params.bookId}`) 
-   console.log("your favortie ")    
-  } 
-  catch(eror) {
-    console.log("error", eror)
- }
-   
-})
-
-// router.post('/:bookId', async (req,res) => {
-
-//   // req.params.bookID
-//   let api = axios.get(`https://www.googleapis.com/books/v1/volumes?q=${Search}&key=${process.env.API_KEY}`)
-
-  
-//   await db.books.findOrCreate({
-//     where: {
-//       name: api.bookname,
-//       bookId: req.params.bookId
-//     }
-//   })
-// })
-
-
-
 
 module.exports = router

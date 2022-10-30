@@ -13,11 +13,11 @@
 <p>Categories: <%= book.volumeInfo.categories%></p>
 <p>Description: <%= book.volumeInfo.description %></p>
 
-<form method="POST" action="/favortie/<%=book.id%>">
+<form action="/users/profile" method="POST" >
     <input type="hidden" name="bookTitle" id="bookTitle" value="<%= book.volumeInfo.title%>">
-    <input type="hidden" name="bookImage" id="bookImage" value="<%= book.volumeInfo.imageLinks.thumbnail%>">
-    
-    <input type="hidden" name="bookId" id="bookId" value="<%=book.bookId%> ">
+    <input type="hidden" name="bookId" id="bookId" value="<%=book.id%> ">
+    <input type="hidden" name="bookImage" id="bookImage" value="<%= book.volumeInfo.imageLinks.smallThumbnail%>">
+   
 
     <button type="submit">My Favorite ⭐️</button>
     

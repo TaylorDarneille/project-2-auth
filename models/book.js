@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.book.belongsTo(models.user)
+      // models.book.belongsTo(models.user)
       models.book.hasMany(models.review)
       models.book.belongsToMany(models.user, {through: "userfaves"})
     }
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   book.init({
     bookTitle: DataTypes.STRING,
     bookId: DataTypes.STRING,
-    bookImage: DataTypes.STRING
+    bookImage: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'book',
