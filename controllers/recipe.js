@@ -11,6 +11,8 @@ let encoded = '';
 
 router.get('/show/:recipeName', (req,res) => {
 	
+
+	res.send('this is the')
 })
 
 router.get('/new', (req, res)=>{
@@ -25,7 +27,7 @@ router.get('/', function(req, res) {
 	if (!(healthOption === 'null')) {
 		recipeUrl = 'https://api.edamam.com/search?app_id=' + process.env.API_ID + '&app_key=' + process.env.API_KEY + '&q=' + queryString + '&health=' + healthOption + '&to=100';
 	} else {
-		recipeUrl = 'https://api.edamam.com/search?app_id=' + process.env.API_ID + '&app_key=' + process.env.API_KEY + '&q=' + queryString + '&to=300';
+		recipeUrl = 'https://api.edamam.com/search?app_id=' + process.env.API_ID + '&app_key=' + process.env.API_KEY + '&q=' + queryString + '&to=100';
 	};
     request(recipeUrl, function(error, response, body) {
     	try {

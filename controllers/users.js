@@ -56,4 +56,6 @@ router.get('/profile', (req, res)=>{
     res.render('users/profile.ejs')
 })
 
+
+
 module.exports = router

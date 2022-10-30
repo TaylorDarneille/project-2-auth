@@ -1,7 +1,7 @@
 <script>
-  var calories = Math.floor(recipe[0].calories);
-  var servings = Math.floor(recipe[0].yield);
-  var calPerServ = Math.floor(calories/servings); 
+  let calories = Math.floor(recipe[0].calories);
+  let servings = Math.floor(recipe[0].yield);
+  let calPerServ = Math.floor(calories/servings); 
 </script>
 
 <div class='row'>
@@ -10,7 +10,7 @@
 <div class='col s12 m3 l3 center'>
   <img class='responsive-img activator' src='<%= recipe[0].image %>' alt='<%= recipe[0].label %>'>
   <br>
-  <a href='<%= recipe[0].url %>'>Link to Source</a>
+  <a href='<%= recipe[0].url %>'>Instruction</a>
 </div>
 <div class='col s12 m3 l3'>
   <h5>Ingredients: </h5>
@@ -45,15 +45,15 @@
   <h5>Nutrients:</h5>
   <div class='ingredients detail'>
     <ul>
-      <% var nutrients = recipe[0].totalNutrients; %>
-      <% var totalDaily = recipe[0].totalDaily; %>
-      <% for (var item in nutrients) { %>
+      <% let nutrients = recipe[0].totalNutrients; %>
+      <% let totalDaily = recipe[0].totalDaily; %>
+      <% for (let item in nutrients) { %>
         <li> <span class='label'><%= nutrients[item].label %>:</span> <%= Math.floor(nutrients[item].quantity) %> <%= nutrients[item].unit %>   </li>
       <% } %>
     </ul>
     <h5  class='health'> Total Daily: </h5>
     <ul>
-      <% for (var item in totalDaily) { %>
+      <% for (let item in totalDaily) { %>
         <li> <span class='label'><%= totalDaily[item].label %>:</span> <%= Math.floor(totalDaily[item].quantity) %><%= totalDaily[item].unit %>   </li>
       <% } %>
     </ul>

@@ -3,13 +3,6 @@
 	<div class='col s12 m12 l12'>
 		<% recipe.hits.forEach(function(recipe) { %>
 
-		<!-- to get calories per serving rather than total -->
-		<!-- <script>
-			var calories = Math.floor( <% recipe.recipe.calories %> );
-			var servings = Math.floor( <% recipe.recipe.yield %> );
-			var calPerServ = Math.floor(calories/servings); 
-		</script> -->
-
 		<div class='col s12 m6 l6 all-recipes'>
 			<div class="recipe">
                 
@@ -39,20 +32,25 @@
                      <input class='center' hidden type="text" name="uri" value="<%= recipe.recipe.uri %>">
                      <input class='center' hidden type="text" name="image" value="<%= recipe.recipe.image %>">
 
-                     <% var encoded = encodeURIComponent( recipe.recipe.uri ); %>
+                     <% let encoded = encodeURIComponent( recipe.recipe.uri ); %>
 
-					 <form action="/recipes/show" method="GET">
+					 <form action="/recipe/show" method="GET">
 						<input type="text" hidden value="<%= encoded %>" name="foodEncoded">
-					 </form>
-
-                     <a class='left' href="/recipes/show/<%= encoded %>">View Details</a>
-
-                     <a class='right' href="<%= recipe.recipe.url %>">Link to source</a>
+						<input type="text" hidden value="<%= encoded %>" name="foodEncoded">
+						
+							<a class='left' href="/recipe/show/<%= encoded %>">View Details</a>
+							
+						</form>
+							<a class='right' href="<%= recipe.recipe.url %>">Instruction</a>
                      <%if (user) { %>
-                     <button class='col s12 m12 l12' type="submit">Add to &hearts;s</button>
+						<form action="/profile/add" method="post">
+							<input type="hidden" name="id" value="<%= encoded %> ">
+							<button class='col s12 m12 l12' type="submit">save &hearts;s</button>
+							<button class='col s12 m12 l12' type="submit">Delete</button>
+						</form>
                      <% } %>
-                      <%if (!user) { %>
-                        <a href='/auth/login' class='col s12 m12 l12'>Log In to Add to &hearts;s</a>
+                      <% if (!user) { %>
+                        <a href='/auth/login' class='col s12 m12 l12'>Log In to Add&hearts;s</a>
                       <% } %>
                      <br>
                    </form>
@@ -69,7 +67,7 @@
     ...
   </div>
   <p class="infinite-scroll-last">End of content</p>
-  <p class="infinite-scroll-error">No more pages to load</p>
+  <p class="infinite-scroll-error">No more pages</p>
 </div>
 
 <!-- pagination has path -->

@@ -1,0 +1,214 @@
+
+html, body {
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	background-color:#eceff1;
+	background-image: linear-gradient(90deg, rgba(172, 6, 6, 0.5) 50%, transparent 50%),
+		linear-gradient(rgba(11, 122, 48, 0.5) 50%, transparent 50%);
+	background-size:100px 100px;
+/*	background-attachment: fixed;*/
+	color: #4f3747 ;
+}
+
+nav {
+	font-family: 'EB Garamond', serif;
+}
+
+input {
+	margin: 0!important;
+}
+
+h6 {
+	font-weight: 600;
+}
+
+.instructions {
+	background-color: white;
+	border-radius: 10px;
+	padding: 20px 40px;
+	color: #37474f ;
+}
+
+.form-background {
+	background-color: white;
+	padding: 40px;
+	margin-top: 20px;
+	border-radius: 15px;
+}
+
+.carousel {
+	margin-top: 40px;
+	border-radius: 5px;
+}
+
+.card-title {
+	font-family: 'EB Garamond', serif;
+}
+
+.icon {
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+	margin-top: 10px;
+	filter: invert(100%);
+}
+
+.card {
+	border-radius: 5px;
+}
+
+.recipe-title {
+	font-size: 18px!important;
+	text-transform: capitalize;
+}
+
+.carousel-item {
+	width: 80%;
+	height: 100%;
+}
+
+.carousel-fixed-item h1 {
+	font-family: 'EB Garamond', serif;
+	text-shadow: 3px 3px 4px #323232;
+	color: white;
+}
+
+.carousel-fixed-item p {
+	background-color: rgba(0,0,0,0.4);
+
+}
+
+.activator {
+	border: solid white 10px;
+	border-radius: 50%!important;
+}
+
+.selectionbox {
+	margin: 15px auto 10px auto!important;
+	width: 20vw!important;
+}
+
+.submit-search-button:hover {
+	background-color: #f44336!important;
+}
+
+.btn-large {
+	height: 42px!important;
+	line-height: 42px!important;
+	border-radius: 15px;
+}
+
+.searchbox {
+	background-color: white;
+	border-radius: 15px;
+}
+
+.search-area {
+	background-color: #81c784;
+	padding: 15px;
+	border-radius: 15px;
+	padding-top: -5px;
+}
+
+.login {
+	margin-top: 20px;
+}
+
+h4 {
+	color: #00B233;
+	font-family: 'EB Garamond', serif;
+}
+
+span {
+	color: #81c784;
+	font-family: 'EB Garamond', serif;
+}
+
+.label {
+	color: #607d8b;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.profile {
+	background-color: white;
+	border: transparent 10px solid;
+	border-radius: 20px;
+	height: 450px;
+}
+
+#no-recipes {
+	display: none;
+}
+
+.delete-recipe {
+	color: #f44336;
+}
+
+.ingredients {
+	overflow: scroll;
+	height: 75px;
+	margin-bottom: 20px;
+	background-color: #ffebee;
+	border-radius: 10px;
+	padding-left: 5px;
+}
+
+.health {
+	color: #00acc1;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.caution {
+	color: #f57c00;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.ingredients, .detail {
+	height: 200px;
+}
+
+.egg {
+	margin: 15px;
+	height: 150px;
+}
+
+.faves {
+	overflow: scroll;
+	height: 300px;
+	padding-bottom: 20px;
+}
+
+.recipe-pic {
+	height: 125px;
+	width: 125px;
+	border-radius: 50%;
+}
+
+.delete-recipe, .view-recipe {
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	text-transform: uppercase;
+}
+
+.magnifying {
+	margin-top: 8px;
+}
+
+.recipe-title {
+	width: inherit;
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+
+.delete-recipe:hover {
+	cursor: pointer;
+}
+
+@media (max-width: 450px) {
+	.brand-logo {
+		font-size: 20px!important;
+	}
+}
+
+.login-button {
+	margin-top: 30px!important;
+}
