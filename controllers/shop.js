@@ -12,25 +12,9 @@ router.get('/shop/Order', (req, res)=>{
     res.render('Order.ejs')
 })
 
-router.get('/:product', async (req, res)=>{
-    try {
-        let product = req.params.product.toLowerCase()
-        const allFrames = await db.product.findAll({
-            where: {
-                category: product
-            }
-        })
-        console.log(allFrames)
-            res.render('shop/frames.ejs', {allFrames: allFrames})
-
-      } catch(err) {
-        res.send(err)
-}
-})
-
 router.delete('/:productId', async (req,res) =>{
 
-    //we need to delete pokemon with id productsId
+    //we need to delete with id productsId
 
     await db.product.destroy({
 
@@ -56,7 +40,6 @@ router.delete('/:productId', async (req,res) =>{
 //         res.send(err)
 // }
 // })
-
 
 
 // router.get('/Frames', async (req, res)=>{
@@ -90,9 +73,11 @@ router.delete('/:productId', async (req,res) =>{
 // })
 
 
-router.get('/chain', (req, res)=>{
-    res.render('shop/chain.ejs')
-})
+// router.get('/chain', (req, res)=>{
+
+
+//     res.render('shop/chain.ejs')
+// })
 
 router.get('/order', (req, res)=>{
     res.render('shop/order.ejs')
@@ -107,13 +92,13 @@ router.get('/search',  (req, res) => {
 
     console.log(search)
 
-   //    const product = db.product.findOne({
+    //   const product = db.product.findOne({
     //         where: {
     //            glasses: req.body.glasses,
-    //            frames: req.body.frames
-     //           chain: req.body.chain
-     //       } 
-     //  })   
+    //            frames: req.body.frames,
+    //            chain: req.body.chain
+    //        } 
+    //   })   
     
     res.render('shop.ejs')
                 
@@ -131,6 +116,24 @@ router.get('/search',  (req, res) => {
 
 // module.exports = router
 
+
+router.get('/:product', async (req, res)=>{
+
+    
+    try {
+        let product = req.params.product.toLowerCase()
+        const allcap = await db.product.findAll({
+            where: {
+                category: product
+            }
+        })
+        console.log(allcap)
+            res.render('shop/cap.ejs', {animeCaps: allcap})
+
+      } catch(err) {
+        res.send(err)
+}
+})
 
 module.exports = router;
 

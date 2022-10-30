@@ -9,10 +9,10 @@ router.post('/new', async (req,res) => {
 
     console.log('req.body', req.body)
     await db.product.findOrCreate({
-        where: {productName: req.body.glassesName}
+        where: {productName: req.body.hoodieName}
     })
 
-    res.redirect('/shop/glasses')
+    res.redirect('/shop/hoodie')
 
 })
 

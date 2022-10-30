@@ -1,60 +1,62 @@
 const db = require('./models')
 
 
-db.product.bulkCreate([
+db.products.bulkCreate([
     {
     "color": "black2",
-    "category" :" glasses",
-    "price": 25,
-    "productNmae": "G28",
-    "img" :"https://www.coolframes.com/get_image.php?fid=242188&color=036_54&alt=",
-    "brandName": "joe Glasses"
+    "category" :"T-shirt",
+    "price": 15,
+    "productNmae": "D28",
+    "img"  :"https://cdn.shopify.com/s/files/1/0593/7863/0818/products/product-image-1633242427_1200x1200.jpg?v=1657878129",
+    "brandName": " DEMON SLAYER TANJIRO T-shirt"
 },
      
 {
-    "category" :"glasses",
-    "color": "black1",
-    "price": 25,
+    "category" :"T-shirt",
+    "color": "white",
+    "price": 12,
     "productNmae": "G12",
-    "img" :"https://img.ebdcdn.com/product/frame/gray/mt7117_0.jpg?im=Resize,width=600,height=300,aspect=fill;UnsharpMask,sigma=1.0,gain=1.0&q=85",
-    "brandName": "artsy Glasses "
+    "img" :"https://img.joomcdn.net/ce508036a2c74dc2cf4b8c59518b4663856dcec2_original.jpeg",
+    "brandName": "T-shirt Dororo"
 },
 
 {
-    "category" :"frames",
+    "category" :"cap Hunter",
     "color": "black",
-    "price": 25,
-    "productNmae": "F14",
-    "img" :"https://greateyeglasses.com/wp-content/uploads/2021/01/Rollins_NavyBlack-800x279.jpg",
-    "brandName": "Rimless Frames"
+    "price": 9,
+    "productNmae": "H14",
+    "img" :"https://static.caphunters.com/29931-large_default/gorra-curva-negra-y-azul-ajustable-killua-zoldyck-tag-kir1-hunter-x-hunter-de-capslab.jpg",
+    "brandName": "hunter x hunter cap"
 },
      
 {
-    "category" :"frames",
-    "color": "black-black",
-    "price": 40,
+    "category" :"cap Attack",
+    "color": "white",
+    "price": 10,
     "productNmae": "F22",
-    "img" :"https://ae01.alicdn.com/kf/HTB1FQx6jzqhSKJjSspnq6A79XXaY.jpg?size=79022&height=443&width=720&hash=83d7539fc802100db1c7907496b769aa",
-    "brandName": "Full-rimmed Frames"
+    "img" :"https://ih1.redbubble.net/image.2569525707.6082/ssrco,dad_hat,product,FFFDF5:8c3db69414,front_three_quarter,square,1000x1000-bg,f8f8f8.jpg",
+    "brandName": "attack titan cap"
 },
    
 {
-    "category":"chain",
-    "color": "black",
+    "category":"hoodie-kimetsu",
+    "color": "white",
     "price": 30,
-    "img" :"https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_856/FSH-1637748654484-eyewearbmobilepackshot.jpg",
-    "productNmae": "C42",
-    "brandName": "in twisted"
+    "img" :"https://litb-cgis.rightinthebox.com/images/640x640/202108/bps/product/inc/phivqi1629362647878.jpg",
+    "productNmae": "k42",
+    "brandName": "hoodie kimetsu no yaiba"
 },
      
 {
-    "category":"chain",
-    "color": "Gold",
-    "price": 40,
-    "img" :"https://i.etsystatic.com/5131084/c/1410/1120/512/120/il/c6cc27/2206924033/il_500x500.2206924033_5233.jpg",
-    "productNmae": "G27",
-    "brandName": "Chain Gold"
+    "category":"J-K hoodie",
+    "color": "white",
+    "price": 20,
+    "img" :"https://cdn.shopify.com/s/files/1/0602/0605/5651/products/product-image-1883327556_1200x.jpg?v=1642448912",
+    "productNmae": "J27",
+    "brandName": "Jujutsu Kaisen hoodie"
 }
    
 ]
-).then(() => console.log('test'))
+).then(() => console.log('test')) 
+
+const Sequelize = require('sequelize')
