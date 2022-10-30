@@ -1,0 +1,21 @@
+<style>
+    div{
+        display: inline-block;
+        margin: 0 10px;
+    }
+</style>
+ 
+ 
+<% books.forEach(element=>{ %>
+    <div>
+        
+        <a href="books/<%= element.id %>">
+            <img src="<%= element.volumeInfo.imageLinks.thumbnail %>" >
+            <h4><%= element.volumeInfo.title %> </h4>
+         </a>
+           
+        
+    </div>
+ 
+<% }) %> 
+ 

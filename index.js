@@ -29,18 +29,15 @@ app.use(async (req, res, next)=>{
 
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
-app.use('/results', require('./controllers/results'))
-app.use('/detail', require('./controllers/detail'))
+app.use('/books', require('./controllers/books'))
+
+
 
 // ROUTES
 app.get('/', (req, res)=>{
-    res.render('home')
+    res.render('books/home.ejs')
   
 })
-
-
-
-
 
 
 

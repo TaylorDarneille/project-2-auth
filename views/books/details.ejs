@@ -1,0 +1,62 @@
+<img src="<%= book.volumeInfo.imageLinks.thumbnail %>">
+<h4><%= book.volumeInfo.title %> </h4>
+<p>Authors: <%= book.volumeInfo.authors%></p>
+<p>Publisher:  <%= book.volumeInfo.publisher %></p>
+<p>Published Date: <%= book.volumeInfo.publishedDate %></p>
+<p>Language:
+<% if (book.volumeInfo.language=='ar'){ %>
+   Arabic
+<%}else{%>
+    English 
+    <%}%>
+</p>
+<p>Categories: <%= book.volumeInfo.categories%></p>
+<p>Description: <%= book.volumeInfo.description %></p>
+
+
+
+<hr />
+<h2>Reviews</h2>
+
+
+<ul>
+    <% reviews.forEach(function(item) { %>
+        <div class="well">
+          <p> 
+            <%= item.review %>
+             
+          </p>
+       
+          <b>- <%= item.user.name %></b>
+        </div>
+        <% }) %>
+
+</ul>
+
+
+<hr />
+
+<h3>Review on this post</h3>
+
+<form action="/books/<%=book.id%>" method="POST">
+ 
+
+  <div class="form-group">
+    <label for="review">reviews</label>
+    <textarea type="text" class="form-control" id="review" name="review" required></textarea>
+  </div>
+
+  <input type="submit" class="btn btn-primary">
+</form>
+
+
+
+
+
+
+   
+
+
+
+
+
