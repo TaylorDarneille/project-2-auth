@@ -13,12 +13,21 @@
 <p>Categories: <%= book.volumeInfo.categories%></p>
 <p>Description: <%= book.volumeInfo.description %></p>
 
+<form method="POST" action="/favortie/<%=book.id%>">
+    <input type="hidden" name="bookTitle" id="bookTitle" value="<%= book.volumeInfo.title%>">
+    <input type="hidden" name="bookImage" id="bookImage" value="<%= book.volumeInfo.imageLinks.thumbnail%>">
+    
+    <input type="hidden" name="bookId" id="bookId" value="<%=book.bookId%> ">
+
+    <button type="submit">My Favorite ⭐️</button>
+    
+
+</form>
+
 
 
 <hr />
 <h2>Reviews</h2>
-
-
 <ul>
     <% reviews.forEach(function(item) { %>
         <div class="well">
@@ -32,12 +41,8 @@
         <% }) %>
 
 </ul>
-
-
 <hr />
-
 <h3>Review on this post</h3>
-
 <form action="/books/<%=book.id%>" method="POST">
  
 
@@ -48,6 +53,8 @@
 
   <input type="submit" class="btn btn-primary">
 </form>
+
+
 
 
 

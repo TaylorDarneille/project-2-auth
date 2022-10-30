@@ -15,8 +15,8 @@ module.exports = {
       bookId: {
         type: Sequelize.STRING
       },
-      userId: {
-        type: Sequelize.INTEGER
+      bookImage: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
