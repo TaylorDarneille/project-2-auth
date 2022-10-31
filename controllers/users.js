@@ -5,18 +5,29 @@ const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
 
+
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs')
 })
 
 router.post('/', async (req, res)=>{
-    const [newUser, created] = await db.user.findOrCreate({where:{email: req.body.email}})
+    const [newUser, created] = await db.user.findOrCreate({where:{
+        email: req.body.email
+    }})
     if(!created){
         console.log('user already exists')
         res.render('users/login.ejs', {error: 'Looks like you already have an account! Try logging in :)'})
     } else {
+        const userName = req.body.name
+        const userPhone = req.body.phone
+        const userCPR = req.body.cpr
+
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
         newUser.password = hashedPassword
+        newUser.name = userName
+        newUser.phone = userPhone
+        newUser.cpr = userCPR
+
         await newUser.save()
         const encryptedUserId = cryptojs.AES.encrypt(newUser.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
@@ -55,5 +66,12 @@ router.get('/logout', (req, res)=>{
 router.get('/profile', (req, res)=>{
     res.render('users/profile.ejs')
 })
+
+// router.get('/createAccount', (req, res)=>{
+//     res.render('users/createAccount.ejs')
+// })
+
+
+
 
 module.exports = router
