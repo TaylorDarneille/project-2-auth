@@ -4,58 +4,77 @@ const router = express.Router()
 const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
-
-router.get('/contact', (req, res)=>{
-    res.render('contact.ejs')
-})
-
-router.get('/about', (req, res)=>{
-    res.render('about.ejs')
-})
-
-// router.post('/newOrder', async (req,res) => {
-
-//     console.log('req.body', req.body)
-
-//     let user = res.locals.user
-//     let [myorder , created] = await db.product.findOrCreate({
-//         where: {
-//             name: req.body.name
-//         }
-//     })
-//     await user.addOrder.id(myorder)
-//     let cart = await db.order.findByPk(cart)
-//     res.json(myorder)
+const user = require('../models/user')
 
 
-
-
-//     // await db.user.find .. .. ..
-//     // await db.order.findOrCreate({ .. .. req.body
-//     // await db.product.find .. .. req.body 
-
-
-
-//     // res.redirect('/users/myorder')
-// })
-
-// router.get('/cart' )
-
-// router.get('/myorder', (req,res) => {
-
-// })
-
-router.get('/Cart', (req, res)=>{
-    res.render('Cart.ejs')
-})
 
 router.get('/home', (req, res)=>{
     res.render('home.ejs')
 })
 
+router.get('/contact', (req, res)=>{
+    res.render('contact.ejs')
+})
+
+
+router.get('/cart', async (req, res)=>{
+    
+    let user = await db.user.findByPk(res.locals.user.id, {
+        include: [{
+            model: db.order,
+            include: [db.product]
+        }]
+    })
+
+    res.json(user)
+})
+
+router.post('/cart/:productId', async (req,res) => {
+
+    let user = res.locals.user
+    let product = await db.product.findOne({
+        id: req.params.productId
+    })
+    let newOrder = await db.order.create({
+        orderComplete: 'false'
+    })
+    let newProductOrder = await db.ProductOrder.findOrCreate({
+        where: {
+            orderId: newOrder.id,
+            productId: req.params.productId
+        }
+    })
+
+    await user.addOrder(newOrder)
+
+    res.redirect('/users/cart')
+
+})
+
+router.get('/shop', async (req,res) => {
+
+    try {
+        let allProducts = await db.product.findAll() 
+        res.render('shop.ejs', {allProducts})
+    } catch(err) {
+        res.json(err)
+    }
+})
+
+router.get('/logout', (req, res)=>{
+    console.log('logging out')
+    res.clearCookie('userId')
+    res.redirect('/')
+})
+router.get('/about', (req, res)=>{
+    res.render('about.ejs')
+})
+
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs')
 })
+
+
 
 
 router.post('/', async (req, res)=>{
@@ -95,21 +114,6 @@ router.post('/login', async (req, res)=>{
     }
 })
 
-router.get('/shop', async (req,res) => {
-
-    try {
-        let allProducts = await db.product.findAll() 
-        res.render('shop.ejs', {allProducts})
-    } catch(err) {
-        res.json(err)
-    }
-})
-
-router.get('/logout', (req, res)=>{
-    console.log('logging out')
-    res.clearCookie('userId')
-    res.redirect('/')
-})
 
 router.get('/profile', (req, res)=>{
     res.render('users/profile.ejs')
