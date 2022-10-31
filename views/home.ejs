@@ -1,94 +1,155 @@
 <!-- <h2>Home</h2> -->
-<div class='row center'>
-	<div class='top col s12 m12 l12'>
-	  <div class="slider center" data-indicators='true'>
-	  	<div class="fixed-item center">
-	  		<h1>Welcome.</h1>
-	    	<p class='text white-text'>Picky eaters? Dietary restrictions? Allergies? <br>
-	    	Your in the right place.</p>
-	    	
-	    </div>
-	    <a class="rec-item" href="#one!">
-	    
-	  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	.card{
+		/* background-color: white; */
+	}
+	.aim{
+		padding-left: 600px;
+		text-align: center;
+		font-size: 20px;
+		color: white;
+	}
+	.btn{
+		width: 60px;
+		height: 30px;
+		margin-left: 530px;
+	}
+	.search{
+		text-align: center;
+		margin-left: 530px;
+	}
+	.instructions{
+		background-color: grey;
+	}
+	.text{
+		color: white;
+		text-align: center;
+	}
+	.text2{
+		background-color: grey;
+	}
+	.des{
+		text-align: center;
+		color: white;
+	}
+	a{
+text-decoration: none;
+}
+.activator{
+	width:400px;
+	height:300px
+}
+</style>
+<body>
+	<div class='row center'>
+		<div class='top col s12 m12 l12'>
+		  <div class="slider center" data-indicators='true'>
+			  <div class="text">
+				  <h1>Welcome.</h1>
+				<p class='text'>Picky eaters? Dietary restrictions? Allergies? <br>
+				Your in the right place.</p>
+				
+			</div>
+			<a class="rec-item" href="#one!">
+			
+		  </div>
+		</div>
 	</div>
-</div>
-
-<div class='row center'> 
-	<br>
-	<p class='instructions z-depth-5'><i class="material-icons yellow-text text-darken-2"></i> To search, just enter an title and select a diet filter from the drop-down (or don't!) and press 'Search!'</p>
-</div>
-
-<div class='row center search-area'>
-	<form action='/recipe' method='GET'>
-        <div class="input-field col s12 m5 l5 center searchbox z-depth-3">
-          <input id="search" class="z-depth-3" type="search" name='search' placeholder='Search ingredients' required>
-          <label class="label-icon" for="search"></label>
-          <i class="material-icons magnifying yellow-text text-darken-2">search</i>
-        </div>
-		<select name='selectionbox' class="browser-default selectionbox col s12 m5 l5 z-depth-3">
-			<option value="null" selected>Diet Options</option>
-			<option value="dairy-free">Dairy-Free</option>
-			<option value="egg-free">Egg-Free</option>
-			<option value="gluten-free">Gluten-Free</option>
-			<option value="kosher">Kosher</option>
-			<option value="paleo">Paleo</option>
-			<option value="peanut-free">Peanut-Free</option>
-			<option value="pescatarian">Pescatarian</option>
-			<option value="shellfish-free">Shellfish-Free</option>
-			<option value="soy-free">Soy-Free</option>
-			<option value="tree-nut-free">Tree Nut-Free</option>
-			<option value="vegan">Vegan</option>
-			<option value="vegatarian">Vegetarian</option>
-			<option value="wheat-free">Wheat-Free</option>
-		</select>
-		 <button type='submit' class='col s12 m2 l2 btn-large selectionbox waves-effect waves-light red darken-2 center submit-search-button z-depth-3'>Search!</button>
-     </form>
-</div>
-
-
-<div class='row'>
-	<div class='col s12 m4 l4'>
-		<div class="card z-depth-5">
-		    <div class="card-image waves-effect waves-block waves-light">
-		      <img class="activator" src="/img/maincard1.jpg">
-		    </div>
-		    <div class="card-content">
-		      <span class="card-title activator red-text text-darken-4">Our Aim<i class="material-icons right"></i></span>
-		     <p>Figuring out what to eat shouldn't be hard.</p>
-		    </div>
-		    <div class="card-reveal">
-		      <span class="card-title red-text text-darken-4"><i class="material-icons right"></i></span>
-		      <p>Caring for picky people recipes or with dietary restrictions. That's why we've made an easy search tool with these situations in mind.</p>
-	    	</div>
-  		</div>
+	
+	<div class='row center'> 
+		<br>
+		<p class='instructions'>
+			<i class="text2"></i> To search, just enter an title and select a diet filter from the drop-down (or don't!) and press 'Search!'</p>
 	</div>
-	<div class='col s12 m4 l4'>
-		<div class="card z-depth-5">
-		    <div class="card-image waves-effect waves-block waves-light">
-		      <img class="activator" src="/img/maincard2.png">
-		    </div>
-		    <div class="card-content">
-		      <span class="card-title activator red-text text-darken-4">Diets/Allergies<i class="material-icons right"></i></span>
-		      <p>Use our simple search to filter what suits you!</p>
-		    </div>
-		    <div class="card-reveal">
-		      <span class="card-title red-text text-darken-4">Dietary Options<i class="material-icons right">close</i></span>
-		      
-		      	</div></div>
-	<div class='col s12 m4 l4'>
-		<div class="card z-depth-5">
-		    <div class="card-image waves-effect waves-block waves-light">
-		      <img class="activator" src="/img/maincard3.jpg">
-		    </div>
-		    <div class="card-content">
-		      <span class="card-title activator red-text text-darken-4">Love It? Save it<i class="material-icons right"></i></span>
-		      <p>Sign up to save your favorite recipes!</p>
-		    </div>
-		    <div class="card-reveal">
-		      <span class="card-title red-text text-darken-4">Your Favorites<i class="material-icons right"></i></span>
-		      <p><a href='/user/signup'>Sign up</a> and save your favorite recipes for later with the click of a button! </p>
-	    	</div>
-  		</div>
+	
+	<div class='jo'>
+		<form action='/recipe' method='GET'>
+			<div class="jo">
+			  <input id="search" class="search" type="search" name='search' placeholder='Search ingredients' required>
+			  <label class="search" for="search"></label>
+			  <!-- <i class="search2">search</i> -->
+			</div>
+			<select name='selectionbox' class="search">
+				<option value="null" selected>Diet Options</option>
+				<option value="dairy-free">Dairy-Free</option>
+				<option value="egg-free">Egg-Free</option>
+				<option value="gluten-free">Gluten-Free</option>
+				<option value="kosher">Kosher</option>
+				<option value="paleo">Paleo</option>
+				<option value="peanut-free">Peanut-Free</option>
+				<option value="pescatarian">Pescatarian</option>
+				<option value="shellfish-free">Shellfish-Free</option>
+				<option value="soy-free">Soy-Free</option>
+				<option value="tree-nut-free">Tree Nut-Free</option>
+				<option value="vegan">Vegan</option>
+				<option value="vegatarian">Vegetarian</option>
+				<option value="wheat-free">Wheat-Free</option>
+			</select><br>
+			 <button type='submit' class='btn'>Search!</button>
+		 </form>
 	</div>
-</div>
+	
+	
+	<div class='row'>
+		<div class='col s12 m4 l4'>
+			<div class="card z-depth-5">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator" src="https://imgur.com/EYxDpAf.jpg">
+				</div>
+				<div class="card">
+				  <span class="aim">Our Aim</span>
+				 <p class="des">Figuring out what to eat shouldn't be hard.</p>
+				 <p class="des">Caring for picky people recipes or with dietary restrictions. That's why we've made an easy search tool with these situations in mind.</p>
+
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title red-text text-darken-4"><i class="material-icons right"></i></span>
+				</div>
+			  </div>
+		</div>
+		<div class='col s12 m4 l4'>
+			<div class="card z-depth-5">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator" src="https://imgur.com/Grzw9Cw.jpg">
+				</div>
+				<div class="card">
+					<span class="aim">Diets/Allergies</span>
+				   <p class="des">Use our simple search to filter what suits you!</p>
+  
+				  </div>
+				<!-- <div class="card-content">
+				  <span class="card-title activator red-text text-darken-4">Diets/Allergies<i class="material-icons right"></i></span>
+				  <p>Use our simple search to filter what suits you!</p>
+				</div> -->
+				<div class="card-reveal">
+				  <span class="card-title red-text text-darken-4">Dietary Options<i class="material-icons right">close</i></span>
+				  
+					  </div></div>
+		<div class='col s12 m4 l4'>
+			<div class="card z-depth-5">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator" src="https://imgur.com/L6R2wEl.jpg">
+				</div>
+				<div class="card">
+					<span class="aim">Love It? Save it</span>
+				   <p class="des">Sign up to save your favorite recipes!</p>
+  
+				  </div>
+				
+				<div class="card-reveal">
+				  <span class="card-title red-text text-darken-4">Your Favorites<i class="material-icons right"></i></span>
+				  <p><a href='/user/signup'>Sign up</a> and save your favorite recipes for later with the click of a button! </p>
+				</div>
+			  </div>
+		</div>
+	</div>	
+</body>
+</html>
