@@ -31,8 +31,9 @@ app.use('/users', require('./controllers/users'))
 
 // ROUTES
 app.get('/', (req, res)=>{
-    res.render('Home')
+    res.redirect('/users/new')
 })
+
 
 app.listen(9000, ()=>{
     console.log('Project 2 Express Authentication')
