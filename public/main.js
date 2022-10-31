@@ -21,7 +21,7 @@ $( document ).ready(function(){
 		});
 	});
 
-	$('.all-recipes').infiniteScroll({
+	$('.allnew-recipes').infiniteScroll({
 	  path: '.pagination__next',
 	  append: '.recipe',
 	  

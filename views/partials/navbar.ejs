@@ -1,3 +1,8 @@
+<style>
+  .nav {
+	font-family: 'EB Garamond', serif;
+}
+</style>
 <div class="navbar">
     <nav>
       <div class="nav-wrapper red darken-3">
@@ -5,13 +10,13 @@
          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
           <%if (!user) { %>
-          <li><a href="/user/signup">Sign up</a></li>
-          <li><a href="/user/login">Login</a></li>
+          <li><a href="/users/signup">Sign up</a></li>
+          <li><a href="/users/login">Login</a></li>
           <% } %>
         </ul>
         <ul class="right hide-on-med-and-down">
           <%if (user) { %>
-        	<li><a href="/user/logout">Logout</a></li>
+        	<li><a href="/users/logout">Logout</a></li>
           <% } %>
         	<li><a href="/profile">Your Profile</a></li>
         </ul>

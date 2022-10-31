@@ -1,4 +1,4 @@
-
+style
 html, body {
 	font-family: 'Barlow Semi Condensed', sans-serif;
 	background-color:#eceff1;
@@ -9,15 +9,15 @@ html, body {
 	color: #4f3747 ;
 }
 
-nav {
+.nav {
 	font-family: 'EB Garamond', serif;
 }
 
-input {
+.input {
 	margin: 0!important;
 }
 
-h6 {
+.h6 {
 	font-weight: 600;
 }
 

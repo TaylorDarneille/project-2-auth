@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Pickies</title>
 </head>
+<style>
+    html, body {
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	/* background-color:#eceff1; */
+	background-image: url("../img/img.jpg");
+    background-size: cover;
+/*	background-attachment: fixed;*/
+	/* color: #4f3747 ; */}
+
+    ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+         background-color: rgb(92, 97, 114);
+        }
+        
+        li {
+          float: left;
+          padding: 20px;
+        }
+        
+        li a {
+          display: block;
+          color: black;
+          text-align: center;
+          text-decoration: none;
+          font-size: 20px;
+        }
+        
+        li a:hover {
+          background-color: white;
+        }
+        h2{
+            font-size: 30px;
+          color: teal;
+        }
+
+</style>
 <body>
     <nav>
         <ul>
@@ -18,7 +58,7 @@
             <% } %>
         </ul>
     </nav>
-    <h1>Pickies</h1>
+    <h1 style="text-align:center; color:whitesmoke">Pickies</h1>
     <%- body %> 
 </body>
 </html>
