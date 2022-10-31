@@ -1,12 +1,35 @@
 // Importing the required libraries
 const express = require('express')
 const db = require('../models')
+const Op = require('sequelize').Op
 const router = express.Router()
 require('dotenv').config()
 
 
+router.get('/:products', async (req, res)=>{
 
+    
+    try {
+        let products = req.params.products.toLowerCase()
+        const allcap = await db.products.findAll({
+            where: {
+                brandName: {
+                    [Op.like]: `%${products}%`
+                }
+            }
+        })
+        console.log('allcap' , allcap)
+            res.render('shop/cap.ejs', {allcap: allcap})
 
+      } catch(err) {
+        console.log(err)
+        res.send(err)
+}
+})
+
+router.get('/shop/T-shirt', (req, res)=>{
+    res.render('shop/T-shirt.ejs')
+})
 
 router.get('/shop/Order', (req, res)=>{
     res.render('Order.ejs')
@@ -14,7 +37,7 @@ router.get('/shop/Order', (req, res)=>{
 
 router.delete('/:productId', async (req,res) =>{
 
-    //we need to delete with id productsId
+    //we need to delete pokemon with id productsId
 
     await db.product.destroy({
 
@@ -117,23 +140,6 @@ router.get('/search',  (req, res) => {
 // module.exports = router
 
 
-router.get('/:product', async (req, res)=>{
-
-    
-    try {
-        let product = req.params.product.toLowerCase()
-        const allcap = await db.product.findAll({
-            where: {
-                category: product
-            }
-        })
-        console.log(allcap)
-            res.render('shop/cap.ejs', {animeCaps: allcap})
-
-      } catch(err) {
-        res.send(err)
-}
-})
 
 module.exports = router;
 

@@ -15,8 +15,12 @@
             <ul id="charactersList"></ul>
         </div>
 
+        
+<% home.forEach(t => { %>
+    
+    <img src="<%= t.url %>" style="width:200px;height:200px;"> </br>
+    <form action="/users/book/<%= t.destination %>" method="post">
+    <p><%= t.destination %></p>
+    </form>
 
-<button><a href="/shop/glasses">ＧＬＡＳＥＳＳ</button></a>
-<button><a href="/shop/cap">αиɪs</button></a>
-<button><a href="/shop/chain">ＣＨＡＩＮ</button></a>
-<button><a href="/shop/order">ＯＲＤＥＲ 🛒</button></a>
+<% }) %>
