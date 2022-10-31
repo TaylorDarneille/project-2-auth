@@ -64,6 +64,7 @@ router.get('/profile', async(req, res)=>{
 })
 
 router.post('/profile', async (req, res)=>{
+    if(res.locals.user){
 
     try {
         
@@ -80,7 +81,7 @@ router.post('/profile', async (req, res)=>{
     //   }) 
 
     const user = res.locals.user
-              
+               
        await book.addUser(user)
        //    console.log("your favortie ")    
     } 
@@ -88,6 +89,11 @@ router.post('/profile', async (req, res)=>{
         console.log("error", error)
     }
     res.redirect(`/users/profile`) 
+   }else {
+    // res.send("LOGIN!")
+    res.render("error.ejs")
+    
+  }
 })
 
 router.delete('/profile/:bookId', async (req,res) => {

@@ -49,8 +49,8 @@ router.post('/:bookId', async (req,res)=>{
       console.log("error", eror)
   })
   }else {
-    res.send("LOGIN!")
-    // res.render("error.ejs")
+    // res.send("LOGIN!")
+    res.render("error.ejs")
     
   }
 })

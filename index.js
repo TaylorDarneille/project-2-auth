@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
 
 //link to CSS
-// app.use(express.static(‘public’))
+app.use(express.static("public"))
 // app.use(‘/css’, express.static(__dirname + ‘/css’))
 
 // AUTHENTICATION MIDDLEWARE

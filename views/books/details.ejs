@@ -6,6 +6,7 @@
   #fave{
     align-items: center;
     margin-left: 20px;
+    border-radius: 5px;
   }
 </style>
 
@@ -13,6 +14,9 @@
   <div class="well">
   <img src="<%= book.volumeInfo.imageLinks.thumbnail %>">
   </div>
+
+ 
+
 
   <div class="well">
   <h4><%= book.volumeInfo.title %> </h4>
@@ -31,7 +35,7 @@
   </div>
 </div>
 
-<form action="/users/profile" method="POST" >
+<form class="fave" action="/users/profile" method="POST" >
     <input type="hidden" name="bookTitle" id="bookTitle" value="<%= book.volumeInfo.title%>">
     <input type="hidden" name="bookId" id="bookId" value="<%=book.id%> ">
   <input type="hidden" name="bookImage" id="bookImage" value="<%= book.volumeInfo.imageLinks.smallThumbnail%>">
@@ -50,22 +54,23 @@
     <% reviews.forEach(function(item) { %>
         <div class="well">
           <p> 
+            <li><%= item.user.name %> :</li>
             <%= item.review %>
              
           </p>
        
-          <b>- <%= item.user.name %></b>
+         
+          <% }) %>
         </div>
-        <% }) %>
 
 </ul>
 <hr />
-<h3>Review on this post</h3>
+<h3>Review on this Book</h3>
 <form action="/books/<%=book.id%>" method="POST">
  
 
   <div class="form-group">
-    <label for="review">reviews</label>
+    
     <textarea type="text" class="form-control" id="review" name="review" required></textarea>
   </div>
 
