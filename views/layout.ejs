@@ -13,7 +13,7 @@
           margin: 0;
           padding: 0;
           overflow: hidden;
-         background-color: rgb(62, 95, 203);
+         background-color: grey;
         }
         
         li {
@@ -43,15 +43,17 @@
                 <li><a href="/users/profile">Profile</a></li>
                 <li><a href="/users/logout">Logout</a></li>
                 <li><a href="/users/home">Home</a></li>
-                <li><a href="/users/book">Booking</a></li>
-                <li><a href="/users/ticket">My Tickets</a></li>
+                <li><a href="/users/contact">Contact us</a></li>
+                <li><a href="/users/membership">Membership</a></li>
+
+                <!-- <li><a href="/users/book">Booking</a></li> -->
+                <li><a href="/users/getAllbookings">My Tickets</a></li>
             <% } else { %> 
                 <li><a href="/users/new">Sign Up</a></li>
                 <li><a href="/users/login">Login</a></li>
             <% } %>
         </ul>
     </nav>
-    <h1>Express Auth Boilerplate for Project 2</h1>
     <%- body %> 
 </body>
 </html>

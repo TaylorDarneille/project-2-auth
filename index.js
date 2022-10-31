@@ -33,6 +33,6 @@ app.get('/', (req, res)=>{
     // res.render('home')
 })
 
-app.listen(8011, ()=>{
+app.listen(8000, ()=>{
     console.log('Project 2 Express Authentication')
 })

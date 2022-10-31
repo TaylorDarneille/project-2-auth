@@ -1,81 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
 <style>
-    .ticket{
-        width: 400px;
-        height: 300px;
-		border: 2px solid blue;
-    }
-    
-</style>
-<body>
-    <h2>My Tickets are here ..</h2>
-   
-<div>
-    <div class="ticket">
-	<div class="title">
-		<p class="cinema"><%= user.name %></p>
-		<%= name %>
-		<p class="movie-title"><%= user.email %></p>
-	</div>
-	<div class="poster">
-        <p><%= event.event_type %></p>
-		<!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/25240/only-god-forgives.jpg" alt="Movie: Only God Forgives" /> -->
-	</div>
-	<div class="info">
-	
-	<table>
-		<tr>
-			<th>PRICE</th>
-			<th>DATE</th>
-		
-		</tr>
-		<tr>
-			<td><%= event.price %> </td>
-			<td><%= event.event_date %></td>
-		
-		</tr>
-	</table>
-	</div>
-	<div class="holes-lower"></div>
-	<div class="serial">
-		<table class="barcode"><tr></tr></table>
-		<table class="numbers">
-			<tr>
-				<td>9</td>
-				<td>1</td>
-				<td>7</td>
-				<td>3</td>
-				<td>7</td>
-				<td>5</td>
-				<td>4</td>
-				<td>4</td>
-				<td>4</td>
-				<td>5</td>
-				<td>4</td>
-				<td>1</td>
-				<td>4</td>
-				<td>7</td>
-				<td>8</td>
-				<td>7</td>
-				<td>3</td>
-				<td>4</td>
-				<td>1</td>
-				<td>4</td>
-				<td>5</td>
-				<td>2</td>
-			</tr>
-		</table>
-	</div>
-</div>
-</div>
+	hr.dashed {
+		border-top: 3px dashed #bbb;
+	}
 
+	.ticket {
+		/* position: relative; */
+		display: inline;
+		width: 380px;
+		height: 360px;
+		background-size: cover;
+		border-radius: 40px;
+		overflow: hidden;
+		box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.25);
+		display: grid;
+		/* grid-template-rows: 60% 40%; */
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.title {
+		padding: 0px 20px 20px 20px;
+	}
+
+	.imgs {
+		border-radius: 30px;
+	}
+
+	.tu {
+		margin-left: 30px;
+		/* border: 2px solid blue; */
+	}
+
+	.imag {
+		padding-left: 20px;
+	}
+</style>
+
+<body>
+	<h2>Booked Events</h2>
+	<div class="tu">
+		<% event.forEach(event=> { %>
+			<div class="ticket">
+				<img src="https://imgur.com/lQrl7Jb.jpg" title="source: imgur.com" class="imgs" height="150"
+					width="380" />
+
+				<div class="title">
+					<p class="cinema">Guest : <%= user.name %>
+					</p>
+
+					<div id="card-container">
+						Event: <%= event.event_type %><br><br>
+							<%= event.event_description %>
+								<p class="click"><a href="/users/deleteBooking/<%= event.id %>/<%= user.id %>">cancel
+										booking</a></p>
+					</div>
+
+					<% }) %>
+
+				</div>
+			</div>
+	</div>
 
 </body>
+
+
 </html>
