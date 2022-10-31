@@ -5,12 +5,21 @@ const cookieParser = require('cookie-parser')
 const db = require('./models')
 const cryptoJS = require('crypto-js')
 require('dotenv').config()
+const methodOverride = require('method-override')
+
+
+app.use(express.static('public'))
+
 
 // MIDDLEWARE
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
+
+
+
 
 // AUTHENTICATION MIDDLEWARE
 app.use(async (req, res, next)=>{
@@ -23,13 +32,23 @@ app.use(async (req, res, next)=>{
     next()
 })
 
+
+
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
+app.use('/cards', require('./controllers/cards'))
 
 // ROUTES
 app.get('/', (req, res)=>{
     res.render('home')
 })
+
+
+
+
+
+
+
 
 app.listen(8000, ()=>{
     console.log('Project 2 Express Authentication')
