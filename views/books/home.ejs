@@ -1,12 +1,28 @@
 
+<style>
+    div{
+        display: inline-block;
+        margin: 0 10px;
+    }
 
-<h1>This is my book Home</h1>
+   
+    #find{
+        display: inline-block;
+        align-items: center;
+        margin: 20px 0px 0px 400px;
+    }
+
+</style>
+
 
 
 <form method="GET" action="/books" >
-    <label for="q">Book title</label>
-    <input id="q" type="text" name="title">
-    <button type="submit" value="Search">Search</button>
+    <div id="find" >
+        <label for="q">Find your Book  </label>
+        <input id="q" type="text" name="title">
+        <button type="submit" value="Search">Search</button>
+
+    </div>
     
 </form>
         

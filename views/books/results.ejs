@@ -3,15 +3,18 @@
         display: inline-block;
         margin: 0 10px;
     }
+    p{
+        text-align: center;
+    }
 </style>
  
  
 <% books.forEach(element=>{ %>
-    <div>
+    <div class="well">
         
         <a href="books/<%= element.id %>">
             <img src="<%= element.volumeInfo.imageLinks.thumbnail %>" >
-            <h4><%= element.volumeInfo.title %> </h4>
+            <p><%= element.volumeInfo.title %> </p>
          </a>
            
         
