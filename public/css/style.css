@@ -166,7 +166,6 @@
     display: grid;
     grid-template-columns: 20% 60% 20%;
     justify-content: center;
-    
 }
 
 .center-container {
@@ -241,12 +240,19 @@
 
 .saved-item {
     text-align: center;
+    padding: 10px 10% 10px 10%;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.saved-item a {
     text-decoration: none;
     color: black;
-    padding: 10px 10% 10px 10%;
-    margin-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
     font-size: 20px;
+}
+.saved-item a:hover {
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .delete-button {
@@ -258,4 +264,82 @@
     color: white;
     cursor: pointer;
     margin: 10px 40px;
+}
+
+/* login */
+
+.layout-container {
+    border: 3px solid brown;
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    justify-content: center;
+    height: 320px;
+}
+
+.layout-center-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.login-link, .sign-up-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 8px 0;
+    border-radius: 20px;
+    width: 140px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 10px 40px;
+}
+
+.login, .sign-up {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.sign-up {
+    margin-top: 40px;
+}
+
+/* login / sign-up */
+
+.email-label, .password-label {
+    color: white;
+}
+
+.email-input, .password-input {
+    background-color: rgba(f, f, f, 0.6);
+    padding: 4px 30px;
+    border-radius: 20px;
+    border: 1px solid grey;
+}
+
+.email, .password {
+    margin-top: 20px;
+}
+
+.login-button {
+    margin-top: 20px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+/* profile */
+
+.profile {
+    color: white;
+    text-align: center;
+    margin-top: 150px;
 }

@@ -17,8 +17,17 @@
                     <li><a href="/users/logout">Logout</a></li> -->
                     <%- include('partials/navbar') %>
                 <% } else { %>
-                    <li><a href="/users/new">Sign Up</a></li>
-                    <li><a href="/users/login">Login</a></li>
+                    <div class="layout-container">
+                        <div class="left-container"></div>
+                        <div class="layout-center-container">
+                            <span class="login">Welcome Back!</span>
+                            <a class="login-link" href="/users/login">Login</a>
+
+                            <span class="sign-up">New Here?</span>
+                            <a class="sign-up-link" href="/users/new">Sign Up</a>
+                        </div>
+                        <div class="right-container"></div>
+                    </div>
                 <% } %>
             </ul>
         </nav>

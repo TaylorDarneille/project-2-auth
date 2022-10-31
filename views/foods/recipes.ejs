@@ -6,7 +6,7 @@
     <% allFoods.forEach((food, idx) => { %>
         <% if(food.name != 'undefined') { %>
             <div class="saved-item">
-                <p><%= food.name %></p>
+                <a href="/foods/<%= food.name %>"><%= food.name %></a>
 
                 <form method="POST" action="/foods/recipes/<%= food.name %>?_method=DELETE">
                     <input hidden type="text" name="name" autocomplete="off" value="delete">
