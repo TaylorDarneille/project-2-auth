@@ -75,9 +75,11 @@ router.post('/profile', async (req, res)=>{
         }
        })
               
-        const user = await db.user.findAll({
+    //     const user = await db.user.findAll({
     
-      }) 
+    //   }) 
+
+    const user = res.locals.user
               
        await book.addUser(user)
        //    console.log("your favortie ")    
@@ -92,7 +94,7 @@ router.delete('/profile/:bookId', async (req,res) => {
 
     
     await db.book.destroy({
-        where: { bookId: req.body.bookId }
+        where: { bookId: req.params.bookId }
     })
     res.redirect(`/users/profile`) 
 })

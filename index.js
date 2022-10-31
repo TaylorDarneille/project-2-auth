@@ -5,12 +5,14 @@ const cookieParser = require('cookie-parser')
 const db = require('./models')
 const cryptoJS = require('crypto-js')
 require('dotenv').config()
+const methodOverride = require('method-override')
 
 // MIDDLEWARE
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
 
 //link to CSS
 // app.use(express.static(‘public’))
@@ -39,6 +41,10 @@ app.get('/', (req, res)=>{
   
 })
 
+app.get('/aboutus', (req, res)=>{
+    res.render('aboutus.ejs')
+  
+})
 
 
 app.listen(8000, ()=>{
