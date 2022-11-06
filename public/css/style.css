@@ -149,7 +149,9 @@
     transform: translate(-50%, -50%);
     text-decoration: none;
     color: white;
+    /* -webkit-text-stroke: 2px black; */
     font-weight: bold;
+    font-size: 20px;
 }
 
 /* index */
@@ -264,7 +266,7 @@
     display: grid;
     grid-template-columns: 35% 30% 35%;
     justify-content: center;
-    height: 320px;
+    height: 330px;
 }
 
 .layout-center-container {
