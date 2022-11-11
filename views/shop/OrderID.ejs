@@ -11,11 +11,5 @@
     <button type="submit" >Place order</button>
 </form>
 
-<% home.forEach(t => { %>
-    
-    <img src="<%= t.url %>" style="width:200px;height:200px;"> </br>
-    <form action="/users/book/<%= t.destination %>" method="post">
-    <p><%= t.destination %></p>
-    </form>
 
-<% }) %>
+<button href ="shop/OrderID">ADD TO BAG </button>

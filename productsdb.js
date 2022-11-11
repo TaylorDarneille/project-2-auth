@@ -4,7 +4,7 @@ const db = require('./models')
 db.products.bulkCreate([
     {
     "color": "black2",
-    "category" :"T-shirt",
+    "category" :"tshirt",
     "price": 15,
     "productNmae": "D28",
     "img"  :"https://cdn.shopify.com/s/files/1/0593/7863/0818/products/product-image-1633242427_1200x1200.jpg?v=1657878129",
@@ -12,7 +12,7 @@ db.products.bulkCreate([
 },
      
 {
-    "category" :"T-shirt",
+    "category" :"tshirt",
     "color": "white",
     "price": 12,
     "productNmae": "G12",

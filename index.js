@@ -40,6 +40,8 @@ app.use('/users', require('./controllers/users'))
 app.use('/shop', require('./controllers/shop'))
 app.use('/orders', require('./controllers/orders'))
 
+
+
 // ROUTES
 app.get('/', (req, res)=>{
     res.render('home')

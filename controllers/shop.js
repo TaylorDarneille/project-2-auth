@@ -11,9 +11,10 @@ router.get('/:products', async (req, res)=>{
     
     try {
         let products = req.params.products.toLowerCase()
+        console.log('products' , products)
         const allcap = await db.products.findAll({
             where: {
-                brandName: {
+                category: {
                     [Op.like]: `%${products}%`
                 }
             }
@@ -37,47 +38,56 @@ router.get('/shop/Order', (req, res)=>{
 
 router.delete('/:productId', async (req,res) =>{
 
-    //we need to delete pokemon with id productsId
+    //we need to delete + with id productsId
 
     await db.product.destroy({
 
         where: { id: req.params.productId}
     })
     
-    res.redirect('/product/orders')
+    res.redirect('/product/order')
 })
 
-// router.get('/:price', async (req, res)=>{
-//     // get price
-//     try {
-//         let product = req.params.product.toLowerCase()
-//         const allFrames = await db.product.findAll({
-//             where: {
-//                 price : product
-//             }
-//         })
-//         console.log(allFrames)
-//             res.render('shop/glasses.ejs', {allFrames: allFrames})
+router.get('/add-products', async (req, res) => {
 
-//       } catch(err) {
-//         res.send(err)
-// }
-// })
+    let context = {}
+
+    const categories = await db.product.getAttributes().category.values
 
 
-// router.get('/Frames', async (req, res)=>{
-//     try {
-//         const allFrames = await db.product.findAll({
-//             where: {
-//             category: "frames"
-//             }
-//         })
-//         console.log(allFrames)
-//         res.render('shop/Frames.ejs', {allFrames})
-//       } catch(err) {
-//         res.send(err)
-// }
-// })
+    context.categories = categories
+
+
+    res.render('users/add-product', context)
+})
+
+
+
+router.get('/order', (req, res)=>{
+    res.render('shop/order.ejs')
+})
+
+
+
+router.post('/order', async (req,res) => {
+
+    const id = req.body.capID
+
+    await db.order.findOrCreate({
+        where: {
+            name: req.body.capID
+        }
+
+
+    })
+
+
+module.exports = router
+
+
+
+
+
 
 // router.get('/product', async (req, res)=>{
 
@@ -96,51 +106,13 @@ router.delete('/:productId', async (req,res) =>{
 // })
 
 
-// router.get('/chain', (req, res)=>{
 
-
-//     res.render('shop/chain.ejs')
-// })
-
-router.get('/order', (req, res)=>{
-    res.render('shop/order.ejs')
-})
-
-
-
-router.get('/search',  (req, res) => {
+// router.get('/search',  (req, res) => {
     
     
-    let search = req.query.searchBar
+//     let search = req.query.searchBar
 
-    console.log(search)
+//     console.log(search)
+//     res.render('shop.ejs')
 
-    //   const product = db.product.findOne({
-    //         where: {
-    //            glasses: req.body.glasses,
-    //            frames: req.body.frames,
-    //            chain: req.body.chain
-    //        } 
-    //   })   
-    
-    res.render('shop.ejs')
-                
-// get data from database
-// let allglasses = await db.glasses.findOrCreate({ where : { glasses: req.query.searchBar }})
-
-// res.render('show.ejs', {allglasses})
-
-})
-
-
-// router/this.post('/')
-
-
-
-// module.exports = router
-
-
-
-module.exports = router;
-
-
+//    

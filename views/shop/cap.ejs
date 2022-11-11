@@ -8,8 +8,15 @@
         <p><%= cap.color %></p>
         <p><%= cap.price %></p>
         <img src="<%= cap.img %>">
-        <button href ="shop/order">ADD TO BAG </button>
 
+        <form action="/shop/order" method="POST">
+            <input type="hidden" value="<%= cap.id %>" name="capID">
+            <button type="submit"> add to cart></button>
+        </form>
+    
+        <!-- <button href ="shop/order"> </button> -->
+
+    
     </div>
 
 <%   })  %>
