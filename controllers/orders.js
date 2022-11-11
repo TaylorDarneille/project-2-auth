@@ -38,7 +38,7 @@ router.post('/new', async (req,res) => {
 
     //Associate products to user
     await user.addProducts(newProducts)
-    let poke = await db.products.findByPk(newProducts.id)
+    let Products = await db.products.findByPk(newProducts.id)
     // res.json(products)
     res.redirect('/shop/products')
 })
@@ -65,7 +65,7 @@ router.get('/:productsId', async (req,res) => {
 
     // Get Details of ONE products
     
-    let pokemon = await db.products.findOne({
+    let Products = await db.products.findOne({
         where: { id : req.params.productsId},
         include: [db.comment]
     })

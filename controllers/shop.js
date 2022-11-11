@@ -6,6 +6,7 @@ const router = express.Router()
 require('dotenv').config()
 
 
+
 router.get('/:products', async (req, res)=>{
 
     
@@ -31,6 +32,7 @@ router.get('/:products', async (req, res)=>{
 router.get('/shop/T-shirt', (req, res)=>{
     res.render('shop/T-shirt.ejs')
 })
+
 
 router.get('/shop/Order', (req, res)=>{
     res.render('Order.ejs')
@@ -82,7 +84,30 @@ router.post('/order', async (req,res) => {
     })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,8 +129,6 @@ module.exports = router
 
 
 // })
-
-
 
 // router.get('/search',  (req, res) => {
     
