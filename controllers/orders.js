@@ -50,8 +50,7 @@ router.post('/new', async (req,res) => {
 router.delete('/:productId', async (req,res) => {
 
     //We need to delete products with id productsId
-    //look at previous code/labs/hw/lessons
-    //Search on google ---> delete item/data using sequelize
+ 
     await db.products.destroy({
         where: { id: req.params.productsId }
     })
@@ -59,7 +58,7 @@ router.delete('/:productId', async (req,res) => {
 })
 
 
-// (Link) GET /products/:id ——> details.ejs
+// (Link) GET /orders/:id ——> hoodie.ejs
 
 router.get('/:productsId', async (req,res) => {
 

@@ -1,0 +1,37 @@
+
+
+
+
+<h3><%= .name %></h3>
+
+<form action="/comments/<%= Shop.id %>/new" method="POST">
+
+    <input type="text" name="description" autocomplete="off">
+
+    <button type="submit">Add comment</button>
+</form>
+
+ <% Shop.comments.forEach(c => { %>
+        <p>
+            <%= c.description %>
+        </p>
+<% }) %>
+
+
+
+
+
+
+<!-- 
+
+<% products.forEach(product => { %>
+ 
+    <h1>
+        <%= product.brandName %> 
+
+    </h1>
+
+    <img src="<%= product.img %> " alt="">
+<% }) %>
+ -->
+
