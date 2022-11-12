@@ -74,8 +74,9 @@ router.get('/order', (req, res)=>{
 router.post('/order', async (req,res) => {
 
     const id = req.body.capID
+    console.log(id);
 
-    await db.order.findOrCreate({
+    await db.orders.findOrCreate({
         where: {
             name: req.body.capID
         }
@@ -83,17 +84,7 @@ router.post('/order', async (req,res) => {
 
     })
 
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 
