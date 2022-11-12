@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	hr.dashed {
+		border-top: 3px dashed #bbb;
+	}
+
+	.ticket {
+		/* position: relative; */
+		display: inline;
+		width: 380px;
+		height: 360px;
+		background-size: cover;
+		border-radius: 40px;
+		overflow: hidden;
+		box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.25);
+		display: grid;
+		/* grid-template-rows: 60% 40%; */
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.title {
+		padding: 0px 20px 20px 20px;
+	}
+
+	.imgs {
+		border-radius: 30px;
+	}
+
+	.tu {
+		margin-left: 30px;
+		/* border: 2px solid blue; */
+	}
+
+	.imag {
+		padding-left: 20px;
+	}
+</style>
+
+<body>
+	<h2>Booked Events</h2>
+	<div class="tu">
+		<% event.forEach(event=> { %>
+			<div class="ticket">
+				<img src="https://imgur.com/lQrl7Jb.jpg" title="source: imgur.com" class="imgs" height="150"
+					width="380" />
+
+				<div class="title">
+					<p class="cinema">Guest : <%= user.name %>
+					</p>
+
+					<div id="card-container">
+						Event: <%= event.event_type %><br><br>
+							<%= event.event_description %>
+								<p class="click"><a href="/users/deleteBooking/<%= event.id %>/<%= user.id %>">cancel
+										booking</a></p>
+					</div>
+
+					<% }) %>
+
+				</div>
+			</div>
+	</div>
+
+</body>
+
+
+</html>

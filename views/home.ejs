@@ -1,1 +1,301 @@
-<h2>Home</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .card {
+        position: relative;
+        display: inline;
+        width: 450px;
+        padding: 20px;
+        height: 650px;
+        background: url("https://imgur.com/8kdbmIT.jpg") no-repeat center;
+        background-size: cover;
+        border-radius: 40px;
+        overflow: hidden;
+        box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.25);
+        display: grid;
+        grid-template-rows: 60% 40%;
+    }
+
+    .event-info {
+        position: relative;
+        display: grid;
+        grid-template-areas:
+            "empty title title"
+            "info info action";
+        justify-items: center;
+        align-items: center;
+        grid-gap: 16px;
+        padding: 20px;
+    }
+
+    .event-info * {
+        position: relative;
+    }
+
+    .title {
+        grid-area: title;
+        font-size: 1.4em;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+    }
+
+    .additional-info {
+        grid-area: info;
+    }
+
+    .additional-info p {
+        font-size: 0.9em;
+        margin-top: 8px;
+        letter-spacing: 0.7px;
+    }
+
+    .action {
+        grid-area: action;
+    }
+
+    .price {
+        position: absolute;
+        top: -20%;
+        left: 40px;
+        width: 80px;
+        height: 80px;
+        background-color: #fff;
+        color: #dd5e89;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
+        font-size: 1.8em;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .event-info::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 110%;
+        height: 300%;
+        background: linear-gradient(to bottom, #eb5285 0%, #ffe44e 51%, #dd5e89 100%);
+        transform: rotate(-8deg);
+        border-top-right-radius: 100px;
+    }
+
+    .items {
+        padding: 20px;
+        margin: 80px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #boxes {
+        min-height: 100px;
+        margin-top: 20px;
+    }
+
+    #boxes .box {
+        background-color: grey;
+        margin-top: 20px;
+        border-radius: 50px;
+        margin-left: 20px;
+        float: left;
+        text-align: center;
+        width: 30%;
+        padding: 10px;
+    }
+
+    #boxes .fab {
+        padding: 0 5px;
+    }
+
+    #card-container {
+        /* border: 2px solid red; */
+        width: 95vw;
+        /* padding: 20px; */
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .click {
+        background-color: blue;
+        border-radius: 30px;
+    }
+
+    .intro {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .intropics {
+        display: flex;
+        /* text-align: center; */
+        padding-left: 150px;
+    }
+
+    .card23 {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        text-align: center;
+        font-family: arial;
+        display: inline-block;
+        margin-left: 30px;
+        border-radius: 30px;
+        align-content: center;
+
+    }
+
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        border-radius: 30px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+    }
+
+    button:hover,
+    a:hover {
+        opacity: 0.7;
+    }
+
+    .eve {
+        text-align: center;
+    }
+
+    .main23 {
+        margin-left: 180px;
+        margin-bottom: 20px;
+    }
+
+    .int {
+        margin-left: 70px;
+    }
+
+    .txt {
+        letter-spacing: 1px;
+        font-size: 16px;
+    }
+</style>
+
+<body>
+    <div class="mainpic">
+        <img src="https://imgur.com/G3mHyNo.jpg" alt="pic" height="400px" width="1400px">
+    </div>
+
+    <br>
+    <div class="intro">
+        <h2>Welcome <br> to the place of enjoyment</h2>
+    </div>
+    <div class="intropics">
+        <img src="https://imgur.com/GUk9RLZ.jpg" alt="pic" width="400px" height="400px">
+
+        <div class="int">
+            <h2> POOL AND BEACH CLUB </h2>
+            <p class="txt">Setting the stage for guests whatever the day may hold. Whether it' <br> relaxing at our
+                private beach, a detox day by the pool or sunbathing, <br> you will find the right vibe at ocean wares.
+                <br><br>
+
+                Ocean wares is the epicenter of the Escape and allows guests <br> to have it all; from mixing & mingling
+                with signature cocktails near the DJ <br> booth to soaking it all in by their sun lounges on the beach.
+            </p>
+        </div>
+    </div>
+    <div class="eve">
+        <br><br><br>
+        <h2>Up coming events</h2>
+    </div>
+    <div class="main23">
+        <div class="card23">
+            <img src="https://solymar-server.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2020/09/04204619/footer-bg.jpg"
+                alt="pic" width="300px" height="200px" alt="Denim Jeans" style="border-radius: 30px">
+            <h1>Sunday pool party</h1>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem
+                jeansum.</p>
+            <p><button>Add to Cart</button></p>
+        </div>
+        <div class="card23">
+            <img src="https://imgur.com/lcmHTe6.jpg" alt="pic" width="300px" height="200px" alt="Denim Jeans">
+            <h1>Relax and lounge</h1>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem
+                jeansum.</p>
+            <p><button>Add to Cart</button></p>
+        </div>
+        <div class="card23">
+            <img src="https://solymar-server.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2020/09/04204619/footer-bg.jpg"
+                alt="pic" width="300px" height="200px" alt="Denim Jeans">
+            <h1>Roof top poolbar</h1>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem
+                jeansum.</p>
+            <p><button>Add to Cart</button></p>
+        </div>
+    </div>
+    <div id="card-container">
+        <% allEvents.forEach(event=> { %>
+            <div class="card">
+                <section class="top"></section>
+                <div class="event-info">
+                    <p class="price">
+                        <%= event.price %> BD
+                    </p>
+                    <p class="title">
+                        <%= event.event_type %>
+                    </p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <%= event.event_description %>
+                        </p>
+                        <p class="info">
+                            <%= event.event_date %>
+                        </p>
+                    </div>
+                    <form class='comment-section' method="POST" action="/users/book/<%= event.id %>">
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <a href="/users/terms"> Terms and conditions</a>
+
+
+
+</body>
+
+
+
+
+</html>
