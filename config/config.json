@@ -1,16 +1,18 @@
 {
   "development": {
-    "database": "auth_boilerplate",
+    "username": "postgres",
+    "password": "layla",
+    "database": "caloriecounter",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "database_test",
+    "database": "caloriecounter",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "database_production",
+    "database": "caloriecounter",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

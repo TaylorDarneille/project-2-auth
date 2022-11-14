@@ -19,9 +19,10 @@ router.post('/', async (req, res)=>{
         newUser.password = hashedPassword
         await newUser.save()
         const encryptedUserId = cryptojs.AES.encrypt(newUser.id.toString(), process.env.SECRET)
+        // SECRET is used to encrypt the username
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        res.redirect('/')
+        res.redirect('/foods')
     }
 })
 
@@ -42,7 +43,7 @@ router.post('/login', async (req, res)=>{
         const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        res.redirect('/')
+        res.redirect('/foods')
     }
 })
 
