@@ -1,20 +1,20 @@
 <h1>favorites &#128140; </h1>
 
+<%= order.productId %>
 
 
 
-<% userPokemons.forEach(p => { %>
 
-    <a href="/orderd/<%= p.id %>">
+    <a href="/orderd/<%= order.id %>">
     <h3><%= favorites.name %></h3>
     </a>
     
     
-    <form method="POST" action="/orders/<%= p.id %>?_method=DELETE">
+    <form method="POST" action="/orders/<%= order.id %>?_method=DELETE">
         <button type="submit">delete</button>
     </form>
     
-    <% })  %>
+
 <style>
 
 body {

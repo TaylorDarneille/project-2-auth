@@ -5,6 +5,25 @@ const Op = require('sequelize').Op
 const router = express.Router()
 require('dotenv').config()
 
+router.post('/order', async (req,res) => {
+    // add item to favorites
+        const id = req.body.capID
+        console.log(id);
+    
+        let order = await db.orders.findOrCreate({ 
+            where: {
+                id: 1
+                //id: req.user.id
+            }
+        })
+        console.dir(order)
+        //await order.addProducts(req.body.capID)
+        await order.getProducts()
+        console.log(order)
+       res.render('favorites.ejs', {order})
+       // res.redirect('/shop/order')
+    
+    })
 
 
 router.get('/:products', async (req, res)=>{
@@ -34,8 +53,8 @@ router.get('/shop/T-shirt', (req, res)=>{
 })
 
 
-router.get('/shop/Order', (req, res)=>{
-    res.render('Order.ejs')
+router.get('/shop/order', (req, res)=>{
+    res.render('home.ejs')
 })
 
 router.delete('/:productId', async (req,res) =>{
@@ -65,24 +84,25 @@ router.get('/add-products', async (req, res) => {
 
 
 
-router.get('/order', (req, res)=>{
-    res.render('shop/order.ejs')
-})
+//router.get('/order', (req, res)=>{
+  //  res.render('shop.ejs')
+//})
 
 
 
 router.post('/order', async (req,res) => {
-
+// add item to favorites
     const id = req.body.capID
     console.log(id);
 
-    await db.orders.findOrCreate({
+    let order = await db.orders.findOrCreate({ 
         where: {
-            name: req.body.capID
+            id: req.body.capID
         }
-
-
     })
+
+    console.log(order)
+    res.redirect('/shop/order')
 
 })
 

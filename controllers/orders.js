@@ -64,11 +64,11 @@ router.get('/:productsId', async (req,res) => {
 
     // Get Details of ONE products
     
-    let Products = await db.products.findOne({
+    let products = await db.products.findOne({
         where: { id : req.params.productsId},
-        include: [db.comment]
+        // include: [db.comment]
     })
-    
+
     // let productsAndComments =products.getComments()
     // res.json(products)
     res.render('products/hoodi.ejs', {products})
