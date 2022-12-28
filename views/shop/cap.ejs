@@ -1,0 +1,49 @@
+
+<%  allcap.forEach(cap => { %>
+    <div>
+
+
+        <p><%= cap.brandName %></p>
+        <p><%= cap.category %></p>
+        <p><%= cap.color %></p>
+        <p><%= cap.price %></p>
+        <img src="<%= cap.img %>">
+
+        <form action="/shop/order" method="POST">
+            <input type="hidden" value="<%= cap.id %>" name="capID">
+            <button type="submit"> ADD </button>
+        </form>
+    
+        <!-- <button href ="shop/order"> </button> -->
+
+    
+    </div>
+
+<%   })  %>
+
+ <style>
+    
+    body {
+background: rgb(255, 255, 255) url("image.png") no-repeat fixed center;
+}
+
+        
+    
+       
+        button {
+            height: 40px;
+            width: 120px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(to left, #000000, #ffffff); 
+            color: #fff;
+            font-weight: bolder;
+            margin-top: 20px;
+            cursor: pointer;
+            outline: none;
+            display:block
+        }
+    
+
+
+ </style>

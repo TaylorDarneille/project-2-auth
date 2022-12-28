@@ -1,1 +1,10 @@
-<h2>Home</h2>
+<h1>Welcome to ...</h1>
+
+<% home.forEach(t => { %>
+    
+    <img src="<%= t.url %>" style="width:200px;height:200px;"> </br>
+    <form action="/users/book/<%= t.destination %>" method="post">
+    <p><%= t.destination %></p>
+    </form>
+
+<% }) %>

@@ -1,0 +1,26 @@
+<h1>favorites &#128140; </h1>
+
+<%= order.productId %>
+
+
+
+
+    <a href="/orderd/<%= order.id %>">
+    <h3><%= favorites.name %></h3>
+    </a>
+    
+    
+    <form method="POST" action="/orders/<%= order.id %>?_method=DELETE">
+        <button type="submit">delete</button>
+    </form>
+    
+
+<style>
+
+body {
+
+    background: lightblue url("https://i.pinimg.com/originals/ca/26/6e/ca266ec19d0a049316aeefd1eee0090f.jpg") no-repeat fixed center;
+
+}
+
+</style>
